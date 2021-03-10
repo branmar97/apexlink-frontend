@@ -1,12 +1,12 @@
-export const fetchSessions = () => {
+export const fetchLobbies = () => {
     return (dispatch) => {
         dispatch({ type: 'LOADING_SESSIONS'})
-        fetch('http://localhost:3000/sessions')
+        fetch('http://localhost:3000/lobbies')
         .then(response => {
           return response.json()
         })
         .then(responseJSON => {
-          dispatch({ type: 'ADD_SESSIONS', sessions: responseJSON })
+          dispatch({ type: 'ADD_LOBBIES', lobbies: responseJSON })
         })
     }
 } 

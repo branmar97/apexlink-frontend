@@ -1,15 +1,15 @@
-const manageSessions = (state = { sessions: [], loading: false }, action) => {
+const manageLobbies = (state = { lobbies: [], loading: false }, action) => {
     switch(action.type) {
-        case 'LOADING_SESSIONS':
+        case 'LOADING_LOBBIES':
             return {
                 ...state,
-                sessions: [...state.sessions],
+                lobbies: [...state.lobbies],
                 loading: true
             }
-        case 'ADD_SESSIONS':
+        case 'ADD_LOBBIES':
             return {
                 ...state,
-                sessions: action.sessions,
+                lobbies: action.lobbies,
                 loading: false
             }
         default:
@@ -17,4 +17,4 @@ const manageSessions = (state = { sessions: [], loading: false }, action) => {
     }
 }
 
-export default manageSessions;
+export default manageLobbies;
