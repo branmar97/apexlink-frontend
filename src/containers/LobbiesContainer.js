@@ -4,11 +4,14 @@ import { fetchLobbies } from '../actions/lobbyActions';
 import Lobbies from '../components/Lobbies';
 
 class LobbiesContainer extends Component {
-   
+    componentDidMount() {
+        this.props.fetchLobbies()
+    }    
+
     render() { 
         return ( 
             <div>
-
+                <h1>Lobbies Container</h1>
             </div>
          );
     }
