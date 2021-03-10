@@ -13,5 +13,18 @@ class LobbiesContainer extends Component {
          );
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        lobbies: state.lobbies,
+        loading: state.loading
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchLobbies: () => dispatch(fetchLobbies())
+    }
+}
  
-export default LobbiesContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(LobbiesContainer);
