@@ -12,6 +12,7 @@ class LobbiesContainer extends Component {
         return ( 
             <div>
                 <h1>Lobbies Container</h1>
+                <Lobbies lobbies={this.props.lobbies} />
             </div>
          );
     }
@@ -19,8 +20,8 @@ class LobbiesContainer extends Component {
 
 const mapStateToProps = state => {
     return {
-        lobbies: state.lobbies,
-        loading: state.loading
+        lobbies: state.lobbies.list,
+        loading: state.lobbies.loading
     }
 }
 
