@@ -5,12 +5,14 @@ class Lobbies extends Component {
     listLobbies = () => {
         return this.props.lobbies.map(lobby => <LobbyCard 
             id={lobby.id} 
+            gamertag={lobby.gamertag}
             region={lobby.region} 
             platform={lobby.platform} 
             gamemode={lobby.gamemode}
             description={lobby.description}
             mic={lobby.mic_required}
-            userId={lobby.user_id}
+            skillLevel={lobby.skill_level}
+            // userId={lobby.user_id}
             />)
     }
 

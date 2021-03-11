@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LobbyCard = ({id, region, platform, gamemode, description, mic, userId}) => {
+const LobbyCard = ({id, gamertag, region, platform, gamemode, description, mic, skillLevel}) => {
     const micRequired = () => {
         if (mic) {
             return "Mic is required"
@@ -11,11 +11,11 @@ const LobbyCard = ({id, region, platform, gamemode, description, mic, userId}) =
     
     return ( 
         <div>
-            <h2>Lobby {id}</h2>
-            <p>{region}</p>
-            <p>{micRequired()}</p>
-            <p>{platform}</p>
+            <h2>{gamertag}</h2>
             <p>{gamemode}</p>
+            <p>{platform}</p>
+            <p>{micRequired()}</p>
+            <p>{region} - {skillLevel}</p>
             <p>{description}</p>
         </div>
      );

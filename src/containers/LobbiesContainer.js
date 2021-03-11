@@ -11,7 +11,7 @@ class LobbiesContainer extends Component {
     render() { 
         return ( 
             <div>
-                <h1>Lobbies Container</h1>
+                <h1>Browse Lobbies</h1>
                 <Lobbies lobbies={this.props.lobbies} />
             </div>
          );
