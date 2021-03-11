@@ -18,11 +18,11 @@ export const addLobby = (data) => {
       headers: {
         'content-type': 'application/json'
       },
-      body: JSON.stringify({data: data}),
+      body: JSON.stringify({lobby: data}),
     })
     .then(response => response.json())
-    .then(lobby => {
-      dispatch({ type: 'ADD_LOBBY', lobby })
+    .then(data => {
+      dispatch({ type: 'ADD_LOBBY', lobby: data })
     })
   }
 }

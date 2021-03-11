@@ -20,10 +20,34 @@ class LobbyForm extends Component {
         })
     }
 
+    handleOnSubmit = event => {
+        event.preventDefault()
+        const lobby = {
+            gamertag: this.state.gamertagText,
+            region: this.state.regionText,
+            platform: this.state.platformText,
+            gamemode: this.state.gamemodeText,
+            description: this.state.descriptionText,
+            mic_required: this.state.micBool,
+            skill_level: this.state.skillText
+        }
+        this.props.addLobby(lobby)
+
+        this.setState({
+            gamertagText: '',
+            regionText: '',
+            platformText: '',
+            gamemodeText: '',
+            descriptionText: '',
+            micBool: false,
+            skillText: ''
+        })
+    }
+
     render() { 
         return ( 
             <div>
-                <form>
+                <form onSubmit={this.handleOnSubmit}>
                     <label htmlFor='gamertagText'>Gamertag</label><br />
                     
                     <input 
