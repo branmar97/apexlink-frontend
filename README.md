@@ -1,4 +1,4 @@
-# Apex Link Backend
+# Apex Link Frontend
 
 Apex Link is a web application where gamers can find friends and teammates for their Apex Legends squad.
 
