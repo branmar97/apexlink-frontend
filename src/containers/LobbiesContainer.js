@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchLobbies } from '../actions/lobbyActions';
+import { fetchLobbies, addLobby } from '../actions/lobbyActions';
 import Lobbies from '../components/Lobbies';
 
 class LobbiesContainer extends Component {
@@ -27,7 +27,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchLobbies: () => dispatch(fetchLobbies())
+        fetchLobbies: () => dispatch(fetchLobbies()),
+        addLobby: lobby => dispatch(addLobby(lobby))
     }
 }
  
