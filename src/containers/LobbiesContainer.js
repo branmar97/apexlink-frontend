@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchLobbies, addLobby } from '../actions/lobbyActions';
 import Lobbies from '../components/Lobbies';
+import LobbyForm from '../components/LobbyForm';
 
 class LobbiesContainer extends Component {
     componentDidMount() {
@@ -12,6 +13,7 @@ class LobbiesContainer extends Component {
         return ( 
             <div>
                 <h1>Browse Lobbies</h1>
+                <LobbyForm addLobby={this.props.addLobby} />
                 <Lobbies lobbies={this.props.lobbies} />
             </div>
          );
