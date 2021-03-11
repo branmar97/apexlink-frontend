@@ -12,6 +12,11 @@ const manageLobbies = (state = { list: [], loading: false }, action) => {
                 list: action.lobbies,
                 loading: false
             }
+        case 'ADD_LOBBY':
+            return {
+                ...state,
+                list: [ ...state.list, action.lobby]
+            }
         default:
             return state;
     }

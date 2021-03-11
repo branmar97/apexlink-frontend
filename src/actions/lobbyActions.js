@@ -1,5 +1,5 @@
 export const fetchLobbies = () => {
-    return (dispatch) => {
+    return dispatch => {
         dispatch({ type: 'LOADING_SESSIONS'})
         fetch('http://localhost:3000/lobbies')
         .then(response => {
@@ -10,3 +10,19 @@ export const fetchLobbies = () => {
         })
     }
 } 
+
+export const addLobby = (data) => {
+  return dispatch => {
+    fetch('http://localhost:3000/lobbies', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({data: data}),
+    })
+    .then(response => response.json())
+    .then(lobby => {
+      dispatch({ type: 'ADD_LOBBY', lobby })
+    })
+  }
+}
