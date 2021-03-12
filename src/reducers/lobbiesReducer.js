@@ -3,7 +3,7 @@ const manageLobbies = (state = { list: [], loading: false }, action) => {
         case 'LOADING_LOBBIES':
             return {
                 ...state,
-                list: [...state.lobbies],
+                list: [...state.list],
                 loading: true
             }
         case 'ADD_LOBBIES':
