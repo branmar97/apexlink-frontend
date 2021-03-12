@@ -17,6 +17,9 @@ const manageLobbies = (state = { list: [], loading: false }, action) => {
                 ...state,
                 list: [ ...state.list, action.lobby]
             }
+        case 'GET_LOBBY':
+            const lobby = state.list.filter(lobby => lobby.id === action.id);
+            return { lobby }
         default:
             return state;
     }
