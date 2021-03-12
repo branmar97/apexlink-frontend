@@ -13,7 +13,14 @@ export const fetchLobbies = () => {
 
 export const getLobby = (id) => {
   return dispatch => {
-    dispatch({ type: 'GET_LOBBY', id})
+    dispatch({ type: 'LOADING_LOBBY'})
+    fetch(`http://localhost:3000/lobbies/${id}`)
+    .then(response => {
+      return response.json()
+    })
+    .then(responseJSON => {
+      dispatch({ type: 'GET_LOBBY', lobby: responseJSON })
+    })
   }
 }
 
