@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const LobbyCard = ({id, gamertag, region, platform, gamemode, description, mic, skillLevel}) => {
     const micRequired = () => {
@@ -11,7 +12,7 @@ const LobbyCard = ({id, gamertag, region, platform, gamemode, description, mic, 
     
     return ( 
         <div>
-            <h2>{gamertag}</h2>
+            <h2><Link to={`/lobbies/${id}`}>{gamertag}</Link></h2>
             <p>{gamemode}</p>
             <p>{platform}</p>
             <p>{micRequired()}</p>
