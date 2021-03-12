@@ -12,7 +12,9 @@ export const fetchLobbies = () => {
 } 
 
 export const getLobby = (id) => {
-  return dispatch({ type: 'GET_LOBBY', id})
+  return dispatch => {
+    dispatch({ type: 'GET_LOBBY', id})
+  }
 }
 
 export const addLobby = (data) => {

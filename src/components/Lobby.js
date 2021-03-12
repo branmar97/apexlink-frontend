@@ -6,10 +6,16 @@ class Lobby extends Component {
     render() { 
         return ( 
             <div>
-                
+
             </div>
          );
     }
 }
+
+const mapDispatchToProps = dispatch => {
+    return {
+        getLobby: (id) => dispatch(getLobby(id)),
+    }
+}
  
-export default Lobby;
+export default connect(null, mapDispatchToProps)(Lobby);
