@@ -1,4 +1,4 @@
-const manageLobbies = (state = { list: [], loading: false }, action) => {
+const manageLobbies = (state = { list: [], current: {}, loading: false }, action) => {
     switch(action.type) {
         case 'LOADING_LOBBIES':
             return {
@@ -18,8 +18,17 @@ const manageLobbies = (state = { list: [], loading: false }, action) => {
                 list: [ ...state.list, action.lobby]
             }
         case 'GET_LOBBY':
-            const lobby = state.list.filter(lobby => lobby.id === action.id);
-            return { lobby }
+            return { 
+                ...state,
+                current: action.lobby,
+                loading: false
+             }
+        case 'LOADING_LOBBY':
+            return {
+                ...state,
+                current: state.current,
+                loading: true
+            }
         default:
             return state;
     }
