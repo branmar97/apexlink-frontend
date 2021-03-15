@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchRequests, addRequest } from '../actions/requestActions';
 
 class RequestsContainer extends Component {
     render() { 
@@ -9,5 +11,19 @@ class RequestsContainer extends Component {
          );
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        requests: state.requests.list,
+        loading: state.requests.loading
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchRequests: () => dispatch(fetchRequests()),
+        addRequest: request => dispatch(addRequest(request))
+    }
+}
  
-export default RequestsContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(RequestsContainer);
