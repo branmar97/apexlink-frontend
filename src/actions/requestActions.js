@@ -25,3 +25,4 @@ export const addRequest = (data) => {
       dispatch({ type: 'ADD_REQUEST', request: data })
     })
   }
+}
