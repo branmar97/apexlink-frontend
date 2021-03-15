@@ -1,16 +1,21 @@
-const manageRequests = (state = { requests: [], loading: false }, action) => {
+const manageRequests = (state = { list: [], loading: false }, action) => {
     switch(action.type) {
         case 'LOADING_REQUESTS':
             return {
                 ...state,
-                requests: [...state.requests],
+                list: [...state.list],
                 loading: true
             }
         case 'ADD_REQUESTS':
             return {
                 ...state,
-                requests: action.requests,
+                list: action.requests,
                 loading: false
+            }
+        case 'ADD_REQUEST':
+            return {
+                ...state,
+                list: [ ...state.list, action.request]
             }
         default:
             return state;
