@@ -16,7 +16,7 @@ class Lobby extends Component {
     }
 
     render() { 
-        return ( 
+        return (
             <div>
                 <h2>{this.props.lobby.gamertag}</h2>
                 <p>{this.props.lobby.gamemode}</p>
@@ -25,7 +25,8 @@ class Lobby extends Component {
                 <p>{this.props.lobby.region} - {this.props.lobby.skill_level}</p>
                 <p>{this.props.lobby.description}</p>
             </div>
-         );
+    )
+    
     }
 }
 
