@@ -10,9 +10,11 @@ class RequestsContainer extends Component {
             <div>
                 <RequestsForm 
                     addRequest={this.props.addRequest}
-                    lobbyId={this.props.lobby.id}
+                    lobbyId={this.props.lobbyId}
                 />
                 <Requests
+                    requests={this.props.requests}
+                    lobbyId={this.props.lobbyId}
                 />
             </div>
          );
