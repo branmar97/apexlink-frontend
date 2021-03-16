@@ -17,12 +17,12 @@ class RequestsForm extends Component {
 
     handleOnSubmit = event => {
         event.preventDefault()
-        const lobby = {
+        const request = {
             gamertag: this.state.gamertagText,
             description: this.state.descriptionText,
             lobby_id: this.props.lobbyId
         }
-        this.props.addLobby(lobby)
+        this.props.addRequest(request)
 
         this.setState({
             gamertagText: '',
