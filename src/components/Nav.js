@@ -7,10 +7,10 @@ const Nav = () => {
             <Link to="/"><h3>Apexlink</h3></Link>
             <ul>
                 <Link to='/lobbies'><li>Browse</li></Link>
-                <li>Create Lobby</li>
-                <li>About</li>
-                <li>Login</li>
-                <li>Signup</li>
+                {/* <li>Create Lobby</li> */}
+                <Link to='/about'><li>About</li></Link>
+                {/* <li>Login</li>
+                <li>Signup</li> */}
             </ul>
         </nav>
      );
