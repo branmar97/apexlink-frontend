@@ -33,13 +33,14 @@ class RequestsForm extends Component {
     render() { 
         return ( 
             <div>
-                <form>
+                <form onSubmit={this.handleOnSubmit}>
                     <label htmlFor='gamertagText'>Gamertag</label><br />
 
                     <input
                         type='text'
                         name='gamertagText'
-                        value={this.state.text}
+                        value={this.state.gamertagText}
+                        onChange={this.handleOnChange}
                         placeholder='ex. EliteGamer28'
                     />
                     <br /><br />
@@ -49,6 +50,7 @@ class RequestsForm extends Component {
                     <textarea 
                         name='descriptionText'
                         value={this.state.descriptionText}
+                        onChange={this.handleOnChange}
                     />
                     <br /><br />
 
