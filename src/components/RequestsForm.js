@@ -20,7 +20,7 @@ class RequestsForm extends Component {
         const lobby = {
             gamertag: this.state.gamertagText,
             description: this.state.descriptionText,
-            lobby_id: this.props.lobby.id
+            lobby_id: this.props.lobbyId
         }
         this.props.addLobby(lobby)
 
@@ -52,7 +52,7 @@ class RequestsForm extends Component {
                     />
                     <br /><br />
 
-                    <button type='submit'>Request</button>
+                    <button type='submit'>Join</button>
                 </form>
             </div>
          );

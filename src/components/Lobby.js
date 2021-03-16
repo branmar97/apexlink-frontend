@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import RequestsContainer from '../containers/RequestsContainer';
 import { connect } from 'react-redux';
 import { getLobby } from '../actions/lobbyActions';
 
@@ -18,12 +19,18 @@ class Lobby extends Component {
     render() { 
         return (
             <div>
-                <h2>{this.props.lobby.gamertag}</h2>
-                <p>{this.props.lobby.gamemode}</p>
-                <p>{this.props.lobby.platform}</p>
-                <p>{this.micRequired()}</p>
-                <p>{this.props.lobby.region} - {this.props.lobby.skill_level}</p>
-                <p>{this.props.lobby.description}</p>
+                <div>
+                    <h2>{this.props.lobby.gamertag}</h2>
+                    <p>{this.props.lobby.gamemode}</p>
+                    <p>{this.props.lobby.platform}</p>
+                    <p>{this.micRequired()}</p>
+                    <p>{this.props.lobby.region} - {this.props.lobby.skill_level}</p>
+                    <p>{this.props.lobby.description}</p>
+                </div>
+                <div>
+                    <h2>Request to Join</h2>
+                    <RequestsContainer lobbyId={this.props.lobby.id} />
+                </div>
             </div>
     )
     
