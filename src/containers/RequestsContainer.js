@@ -5,6 +5,10 @@ import { connect } from 'react-redux';
 import { fetchRequests, addRequest } from '../actions/requestActions';
 
 class RequestsContainer extends Component {
+    componentDidMount() {
+        this.props.fetchRequests()
+    }
+
     render() { 
         return ( 
             <div>
