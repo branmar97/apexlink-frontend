@@ -6,7 +6,7 @@ const Nav = () => {
     return ( 
         <nav className='flex justify-between items-center h-16 bg-transparent text-white relative font-mono pt-16 pb-16 mb-10' role='navigation'>
             {/* Logo */}
-            <Link to="/" className='text-3xl pl-16 flex justify-between items-center'>
+            <Link to="/" className='text-5xl tracking-widest pl-16 flex justify-between items-center font-duke'>
                 
             <img className='object-contain h-full' src={apexlinkLogo} alt='Logo' />
             
@@ -23,9 +23,9 @@ const Nav = () => {
                 </svg>
             </div>
 
-            <div className='pr-8 md:block hidden'>
-                <Link to='/lobbies' className='p-4'>BROWSE</Link>
-                <Link to='/about' className='p-4 pr-12'>ABOUT</Link>
+            <div className='pr-8 md:block hidden font-heebo uppercase'>
+                <Link to='/lobbies' className='p-4'>Browse</Link>
+                <Link to='/about' className='p-4 pr-12'>About</Link>
             </div>
         </nav>
      );
