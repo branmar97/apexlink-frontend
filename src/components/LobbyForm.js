@@ -90,8 +90,8 @@ class LobbyForm extends Component {
                     onChange={this.handleOnChange}
                     >
                         <option value='PC'>PC</option>
-                        <option value='PC'>Xbox</option>
-                        <option value='PC'>Playstation</option>
+                        <option value='Xbox'>Xbox</option>
+                        <option value='Playstation'>Playstation</option>
                     </select>
                     <br /><br />
 
