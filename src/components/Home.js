@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
     return ( 
-        <div className='bg-white h-screen flex flex-col
-        justify-center items-center'>
-            
-            {/* <h2 className='text-red-500'>BUILD YOUR NEXT ELITE SQUAD</h2>
-            <p>Connect with others and find the best teammates.</p>
+        <div className='bg-transparent h-screen flex flex-col
+        justify-center items-center font-heebo'>
 
-            <Link to='/about'><button>LEARN MORE</button></Link>
+            <h1 className='text-6xl text-red-500 uppercase mb-4'>Build Your Next Elite Squad</h1>
+            <p className='text-2xl text-white uppercase mb-4'>Connect with others and find the best teammates</p>
 
-            <h3>RECENT LOBBIES</h3> */}
+            <Link to='/about'><button className="bg-transparent hover:bg-red-500 text-white hover:text-white py-4 px-8 border border-white hover:border-transparent uppercase mt-10">Learn More</button></Link>
+
+            <h3>RECENT LOBBIES</h3>
         </div>
      );
 }
