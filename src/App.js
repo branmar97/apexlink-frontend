@@ -11,7 +11,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 function App() {
   return (
     <Router>
-      <div className='bg-wraith bg-center bg-top bg-cover bg-no-repeat'>
+      <div className='bg-wraith bg-center bg-top bg-cover bg-no-repeat bg-fixed'>
         <div className='bg-red-900 bg-opacity-50'>
           <div className='bg-black bg-opacity-50'>
             <Nav />
