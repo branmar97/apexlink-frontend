@@ -5,6 +5,10 @@ module.exports = {
     extend: {
       backgroundImage: {
         'wraith': "url('/src/images/site-background-blurred.png')"
+      },
+      fontFamily: {
+        'duke': ["Duke"],
+        'heebo': ["Heebo"]
       }
     },
   },
