@@ -18,7 +18,7 @@ class Lobby extends Component {
 
     render() { 
         return (
-            <div>
+            <div className='bg-transparent'>
                 <div>
                     <h2>{this.props.lobby.gamertag}</h2>
                     <p>{this.props.lobby.gamemode}</p>

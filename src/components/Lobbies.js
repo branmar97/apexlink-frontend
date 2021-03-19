@@ -18,8 +18,12 @@ class Lobbies extends Component {
 
     render() { 
         return ( 
-            <div>
-                {this.listLobbies()}
+            <div className='px-4 max-w-3xl mx-auto bg-transparent mt-16'>
+                <h2 className='font-bold text-2xl uppercase mb-6'>Browse Lobbies</h2>
+
+                <div className='flex grid grid-cols-2 gap-4'>
+                    {this.listLobbies()}
+                </div>
             </div>
         );
     }
