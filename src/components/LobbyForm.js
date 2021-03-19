@@ -47,44 +47,38 @@ class LobbyForm extends Component {
     render() { 
         return ( 
             <div>
-                <form onSubmit={this.handleOnSubmit}>
-                    <label htmlFor='gamertagText'>Gamertag</label><br />
+                <form className='px-4 max-w-3xl mx-auto' onSubmit={this.handleOnSubmit}>
+                    <h1 className='font-bold text-2xl uppercase mb-6'>Create Lobby</h1>
+                    
+                    <label htmlFor='gamertagText'>Gamertag</label>
                     
                     <input 
+                    className='border border-gray-400 block py-2 px-4 w-full focus:outline-none focus:border-red-500 text-black mb-6'
                     type='text' 
                     name='gamertagText'
                     value={this.state.gamertagText}
                     onChange={this.handleOnChange}
                     placeholder='ex. EliteGamer28'
                     />
-                    <br /><br />
 
-                    <label htmlFor='micBool'>Mic required?</label>
-
-                    <input
-                    type='checkbox'
-                    name='micBool'
-                    defaultChecked={this.state.micBool}
-                    onChange={this.handleOnChange}
-                    />
-                    <br /><br />
-
-                    <label htmlFor='regionText'>Region</label><br />
+                    <label htmlFor='regionText'>Region</label>
 
                     <select 
+                    className='border border-gray-400 block py-2 px-4 w-full focus:outline-none focus:border-red-500 text-black mb-6'
                     name='regionText'
                     value={this.state.regionText}
                     onChange={this.handleOnChange}
                     >
+                        <option hidden disabled selected value> -- Select an Option -- </option>
                         <option value='United States'>United States</option>
                         <option value='Canada'>Canada</option>
                         <option value='United Kingdom'>United Kingdom</option>
                     </select>
-                    <br /><br />
 
-                    <label htmlFor='platformText'>Platform</label><br />
+                    <label htmlFor='platformText'>Platform</label>
 
                     <select 
+                    className='border border-gray-400 block py-2 px-4 w-full focus:outline-none focus:border-red-500 text-black mb-6'
                     name='platformText'
                     value={this.state.platformText}
                     onChange={this.handleOnChange}
@@ -93,11 +87,11 @@ class LobbyForm extends Component {
                         <option value='Xbox'>Xbox</option>
                         <option value='Playstation'>Playstation</option>
                     </select>
-                    <br /><br />
 
-                    <label htmlFor='gamemodeText'>Gamemode</label><br />
+                    <label htmlFor='gamemodeText'>Gamemode</label>
 
                     <select 
+                    className='border border-gray-400 block py-2 px-4 w-full focus:outline-none focus:border-red-500 text-black mb-6'
                     name='gamemodeText'
                     value={this.state.gamemodeText}
                     onChange={this.handleOnChange}
@@ -106,11 +100,11 @@ class LobbyForm extends Component {
                         <option value='Trios'>Trios</option>
                         <option value='Ranked'>Ranked</option>
                     </select>
-                    <br /><br />
 
-                    <label htmlFor='skillText'>Skill</label><br />
+                    <label htmlFor='skillText'>Skill</label>
 
                     <select 
+                    className='border border-gray-400 block py-2 px-4 w-full focus:outline-none focus:border-red-500 text-black mb-6'
                     name='skillText'
                     value={this.state.skillText}
                     onChange={this.handleOnChange}
@@ -119,18 +113,29 @@ class LobbyForm extends Component {
                         <option value='Intermediate'>Intermediate</option>
                         <option value='Experienced'>Experienced</option>
                     </select>
-                    <br /><br />
 
-                    <label htmlFor='descriptionText'>Description</label><br />
+                    <div className='pb-4'>
+                        <label className='mr-4' htmlFor='micBool'>Mic required?</label>
+
+                        <input
+                        type='checkbox'
+                        name='micBool'
+                        defaultChecked={this.state.micBool}
+                        onChange={this.handleOnChange}
+                        />
+                    </div>
+
+                    <label htmlFor='descriptionText'>Description</label>
 
                     <textarea 
+                    className='border border-gray-400 block py-6 px-4 w-full focus:outline-none focus:border-red-500 text-black mb-6'
                     name='descriptionText'
+                    placeholder='Some details about your lobby'
                     value={this.state.descriptionText}
                     onChange={this.handleOnChange}
                     />
-                    <br /><br />
 
-                    <button type='submit'>Add Lobby</button>
+                    <button className="bg-transparent hover:bg-red-500 text-white hover:text-white py-2 px-6 border border-white hover:border-transparent uppercase mt-10" type='submit'>Add Lobby</button>
                 </form>
             </div>
          );

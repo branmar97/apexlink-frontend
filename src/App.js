@@ -9,6 +9,7 @@ import LobbiesContainer from './containers/LobbiesContainer';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
+
   return (
     <Router>
       <div className='bg-wraith bg-center bg-top bg-cover bg-no-repeat bg-fixed'>
