@@ -4,7 +4,7 @@ import apexlinkLogo from '../images/apexlinkLogo.png';
 
 const Nav = () => {
     return ( 
-        <nav className='flex justify-between items-center h-16 bg-transparent text-white relative font-mono pt-16 pb-16 mb-10' role='navigation'>
+        <nav className='flex justify-between items-center h-16 bg-transparent fixed text-white relative font-mono pt-16 pb-16 mb-10' role='navigation'>
             {/* Logo */}
             <Link to="/" className='text-5xl tracking-widest pl-16 flex justify-between items-center font-duke'>
                 
@@ -24,8 +24,9 @@ const Nav = () => {
             </div>
 
             <div className='pr-8 md:block hidden font-heebo uppercase'>
-                <Link to='/lobbies' className='p-4'>Browse</Link>
-                <Link to='/about' className='p-4 pr-12'>About</Link>
+            <Link to='/' className='p-4'>Home</Link>
+                <Link to='/about' className='p-4'>About</Link>
+                <Link to='/lobbies' className='p-4 pr-12'>Browse</Link>
             </div>
         </nav>
      );
