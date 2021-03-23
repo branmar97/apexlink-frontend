@@ -16,7 +16,7 @@ Signup or login to create, view and join sessions.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on Github at https://github.com/branmar97/apexlink-backend
+Bug reports and pull requests are welcome on Github at https://github.com/branmar97/apexlink-frontend
 
 ## License
 
