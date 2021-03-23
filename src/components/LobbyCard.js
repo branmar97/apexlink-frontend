@@ -29,19 +29,20 @@ const LobbyCard = ({id, gamertag, region, platform, gamemode, description, mic, 
     }
     
     return ( 
-        <div className='bg-gray-500 bg-opacity-50 grid grid-cols-2 gap-2 text-gray-200 shadow-2xl'>
-            <div className="col-span-2 mt-6 ml-6 font-semibold text-xl tracking-wider uppercase"><h2><Link to={`/lobbies/${id}`}>{gamertag}</Link></h2></div>
-            <div className="col-span-2 ml-6 text-sm"><p>{gamemode} • 30 min</p></div>
-            <div className="col-span-2 ml-6 flex">{platformType()} {micRequired()}</div>
-            <div className="col-span-2 ml-6 text-sm"><p>{region} • {skillLevel}</p></div>
-            <div className="col-span-2 ml-6 mb-6 text-sm text-white"><p>{description}</p></div>
-            <div className="col-span-1 ml-6">
-                <img src="https://img.icons8.com/small/30/ffffff/group-foreground-selected.png"/>
-                <span>7 Interested</span>  
+        <div className='card shadow-2xl bg-gray-500 bg-opacity-50 text-gray-200 p-10'>
+            <div className="font-semibold text-xl tracking-wider uppercase"><h2><Link to={`/lobbies/${id}`}>{gamertag}</Link></h2></div>
+            <div className="text-sm"><p>{gamemode} • 30 min</p></div>
+            <div className="flex mt-2">{platformType()} {micRequired()}</div>
+            <div className="text-sm mt-2"><p>{region} • {skillLevel}</p></div>
+            <div className="text-sm mt-4 btext-white"><p>{description}</p></div>
+            <div className="mt-8 inline-block float-left">
+                <svg className="w-6 h-6 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+
+                <span className='text-sm ml-1 mt-0.5'>7 Interested</span>  
             </div>
-            <div className="col-span-1 ml-6 mr-6 mb-6">
+            <div className="mt-6 inline-block float-right">
                 <Link to={`/lobbies/${id}`}>
-                    <button className='bg-red-600 hover:bg-red-500 text-white hover:text-white py-2 px-4 text-sm uppercase'>
+                    <button className='flex bg-red-600 hover:bg-red-500 text-white hover:text-white py-2 px-3 text-sm uppercase'>
                     View Lobby
                     </button>
                 </Link>

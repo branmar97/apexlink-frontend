@@ -18,10 +18,10 @@ class Lobbies extends Component {
 
     render() { 
         return ( 
-            <div className='px-4 max-w-3xl mx-auto bg-transparent mt-16'>
+            <div className='px-4 max-w-6xl mx-auto bg-transparent mt-16'>
                 <h2 className='font-bold text-2xl uppercase mb-6'>Browse Lobbies</h2>
 
-                <div className='flex grid grid-cols-2 gap-4'>
+                <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-10'>
                     {this.listLobbies()}
                 </div>
             </div>

@@ -12,7 +12,7 @@ class LobbiesContainer extends Component {
     render() { 
         return ( 
             <div className='bg-transparent 
-            justify-center items-center font-heebo text-white my-32'>
+             font-heebo text-white my-32'>
                 <LobbyForm addLobby={this.props.addLobby} />
                 <Lobbies lobbies={this.props.lobbies} />
             </div>
