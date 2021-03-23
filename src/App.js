@@ -12,17 +12,13 @@ function App() {
 
   return (
     <Router>
-      <div className='bg-wraith bg-center bg-top bg-cover bg-no-repeat bg-fixed'>
-        <div className='bg-red-900 bg-opacity-50'>
-          <div className='bg-black bg-opacity-50'>
-            <Nav />
-            <Route exact path="/" component={Home} />
-            <Route exact path='/about' component={About} />
-            <Route exact path="/lobbies" component={LobbiesContainer} />
-            <Route path="/lobbies/:id" component={Lobby} />
-          </div>
-        </div>
-      </div>
+        <div className='bg-wraith bg-center bg-top bg-cover bg-no-repeat bg-fixed pb-16'>
+              <Nav />
+              <Route exact path="/" component={Home} />
+              <Route exact path='/about' component={About} />
+              <Route exact path="/lobbies" component={LobbiesContainer} />
+              <Route path="/lobbies/:id" component={Lobby} />
+            </div>
     </Router>
   );
 }
