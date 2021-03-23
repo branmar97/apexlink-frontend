@@ -33,21 +33,34 @@ class LobbyForm extends Component {
         }
         this.props.addLobby(lobby)
 
+        event.target.reset()
+
         this.setState({
             gamertagText: '',
-            regionText: '',
-            platformText: '',
-            gamemodeText: '',
             descriptionText: '',
             micBool: false,
-            skillText: ''
         })
+    }
+
+    handleCheckbox = () => {
+        const micState = this.state.micBool;
+        
+        if(micState === false) {
+            this.setState({
+                micBool: true
+            });
+        }
+        else {
+            this.setState({
+                micBool: false
+            });
+        }
     }
 
     render() { 
         return ( 
             <div>
-                <form className='px-4 max-w-3xl mx-auto' onSubmit={this.handleOnSubmit}>
+                <form className='px-4 max-w-6xl mx-auto' onSubmit={this.handleOnSubmit}>
                     <h1 className='font-bold text-2xl uppercase mb-6'>Create Lobby</h1>
                     
                     <label htmlFor='gamertagText'>Gamertag</label>
@@ -66,10 +79,11 @@ class LobbyForm extends Component {
                     <select 
                     className='border border-gray-400 block py-2 px-4 w-full focus:outline-none focus:border-red-500 text-black mb-6'
                     name='regionText'
-                    value={this.state.regionText}
                     onChange={this.handleOnChange}
                     >
-                        <option hidden disabled selected value> -- Select an Option -- </option>
+                        <option disabled selected value> 
+                            Select an Option 
+                        </option> 
                         <option value='United States'>United States</option>
                         <option value='Canada'>Canada</option>
                         <option value='United Kingdom'>United Kingdom</option>
@@ -80,9 +94,11 @@ class LobbyForm extends Component {
                     <select 
                     className='border border-gray-400 block py-2 px-4 w-full focus:outline-none focus:border-red-500 text-black mb-6'
                     name='platformText'
-                    value={this.state.platformText}
                     onChange={this.handleOnChange}
                     >
+                        <option disabled selected value> 
+                            Select an Option 
+                        </option> 
                         <option value='PC'>PC</option>
                         <option value='Xbox'>Xbox</option>
                         <option value='Playstation'>Playstation</option>
@@ -93,9 +109,11 @@ class LobbyForm extends Component {
                     <select 
                     className='border border-gray-400 block py-2 px-4 w-full focus:outline-none focus:border-red-500 text-black mb-6'
                     name='gamemodeText'
-                    value={this.state.gamemodeText}
                     onChange={this.handleOnChange}
                     >
+                        <option disabled selected value> 
+                            Select an Option 
+                        </option> 
                         <option value='Duos'>Duos</option>
                         <option value='Trios'>Trios</option>
                         <option value='Ranked'>Ranked</option>
@@ -106,9 +124,11 @@ class LobbyForm extends Component {
                     <select 
                     className='border border-gray-400 block py-2 px-4 w-full focus:outline-none focus:border-red-500 text-black mb-6'
                     name='skillText'
-                    value={this.state.skillText}
                     onChange={this.handleOnChange}
                     >
+                        <option disabled selected value> 
+                            Select an Option 
+                        </option> 
                         <option value='Beginner'>Beginner</option>
                         <option value='Intermediate'>Intermediate</option>
                         <option value='Experienced'>Experienced</option>
@@ -121,7 +141,7 @@ class LobbyForm extends Component {
                         type='checkbox'
                         name='micBool'
                         defaultChecked={this.state.micBool}
-                        onChange={this.handleOnChange}
+                        onClick={this.handleCheckbox}
                         />
                     </div>
 
