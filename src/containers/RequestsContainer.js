@@ -11,7 +11,8 @@ class RequestsContainer extends Component {
 
     render() { 
         return ( 
-            <div>
+            <div className='bg-transparent 
+            font-heebo text-white my-32'>
                 <RequestsForm 
                     addRequest={this.props.addRequest}
                     lobbyId={this.props.lobbyId}

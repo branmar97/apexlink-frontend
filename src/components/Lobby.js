@@ -28,7 +28,6 @@ class Lobby extends Component {
                     <p>{this.props.lobby.description}</p>
                 </div>
                 <div>
-                    <h2>Request to Join</h2>
                     <RequestsContainer lobbyId={this.props.lobby.id} />
                 </div>
             </div>

@@ -33,28 +33,31 @@ class RequestsForm extends Component {
     render() { 
         return ( 
             <div>
-                <form onSubmit={this.handleOnSubmit}>
-                    <label htmlFor='gamertagText'>Gamertag</label><br />
+                <form className='px-4 max-w-6xl mx-auto' onSubmit={this.handleOnSubmit}>
+                    <h2 className='font-bold text-2xl uppercase mb-6'>Request to Join</h2>
+
+                    <label htmlFor='gamertagText'>Gamertag</label>
 
                     <input
+                        className='border border-gray-400 block py-2 px-4 w-full focus:outline-none focus:border-red-500 text-black mb-6'
                         type='text'
                         name='gamertagText'
                         value={this.state.gamertagText}
                         onChange={this.handleOnChange}
                         placeholder='ex. EliteGamer28'
                     />
-                    <br /><br />
 
-                    <label htmlFor='descriptionText'>Description</label><br />
+                    <label htmlFor='descriptionText'>Description</label>
 
                     <textarea 
+                        className='border border-gray-400 block py-6 px-4 w-full focus:outline-none focus:border-red-500 text-black mb-6'
                         name='descriptionText'
+                        placeholder='Some details about your request'
                         value={this.state.descriptionText}
                         onChange={this.handleOnChange}
                     />
-                    <br /><br />
 
-                    <button type='submit'>Join</button>
+                    <button className='bg-transparent hover:bg-red-500 text-white hover:text-white py-2 px-6 border border-white hover:border-transparent uppercase mt-10' type='submit'>Join</button>
                 </form>
             </div>
          );
