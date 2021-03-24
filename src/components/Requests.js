@@ -9,10 +9,11 @@ const Requests = ({ requests, lobbyId }) => {
     })
     
     return ( 
-        <div>
-            <ul>
+        <div className='max-w-6xl mx-auto bg-transparent mt-16 my-32'>
+            <h1 className='font-bold text-2xl uppercase mb-6'>Requests ({requestList.length})</h1>
+            <div className='grid grid-cols-1 gap-10'>
                 {requestList}
-            </ul>
+            </div>
         </div>
      );
 }
