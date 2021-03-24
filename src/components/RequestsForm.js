@@ -33,7 +33,7 @@ class RequestsForm extends Component {
     render() { 
         return ( 
             <div>
-                <form className='px-4 max-w-6xl mx-auto' onSubmit={this.handleOnSubmit}>
+                <form className='mx-auto' onSubmit={this.handleOnSubmit}>
                     <h2 className='font-bold text-2xl uppercase mb-6'>Request to Join</h2>
 
                     <label htmlFor='gamertagText'>Gamertag</label>
