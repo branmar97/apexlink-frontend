@@ -10,7 +10,8 @@ class LobbyForm extends Component {
             gamemodeText: '',
             descriptionText: '',
             micBool: false,
-            skillText: ''
+            skillText: '',
+            hidden: true
         }
     }
 
@@ -57,10 +58,17 @@ class LobbyForm extends Component {
         }
     }
 
+    handleShowForm = () => {
+        this.setState({
+            hidden: !this.state.hidden
+        })
+    }
+
     render() { 
         return ( 
-            <div>
-                <form className='px-4 max-w-6xl mx-auto' onSubmit={this.handleOnSubmit}>
+            <div className='px-4 max-w-6xl mx-auto'>
+                <button className='bg-transparent hover:bg-red-500 text-white hover:text-white py-2 px-6 border border-white hover:border-transparent uppercase float-right' onClick={this.handleShowForm}>{this.state.hidden ? 'Create Lobby' : 'Hide Form'}</button>
+                <form className={this.state.hidden ? 'hidden' : ''} onSubmit={this.handleOnSubmit}>
                     <h1 className='font-bold text-2xl uppercase mb-6'>Create Lobby</h1>
                     
                     <label htmlFor='gamertagText'>Gamertag</label>
