@@ -37,10 +37,13 @@ class Lobby extends Component {
     render() { 
         return (
             <div className='bg-transparent font-heebo text-white my-32 px-4 max-w-6xl mx-auto'>
-                <div className='shadow-2xl bg-gray-500 bg-opacity-50 text-gray-200 p-10'>
+                <div className='shadow-2xl bg-gray-500 bg-opacity-50 text-gray-200 p-10'>  
                     <p className="text-sm mb-6 mt-2 float-right">Lobby #{this.props.lobby.id}</p>
-                    <h2 className="font-semibold text-4xl tracking-wider uppercase">{this.props.lobby.gamertag}</h2>
-                    <p className="text-sm">{this.props.lobby.gamemode} • 30 min</p>
+                    <div className='flex'>
+                        <h2 className="font-semibold text-4xl tracking-wider uppercase mr-4">{this.props.lobby.gamertag}</h2>
+                        <img src="https://img.icons8.com/android/40/ffffff/crown.png"/>
+                    </div>
+                    <p className="text-sm mt-4">{this.props.lobby.gamemode} • 30 min</p>
                     <div className="flex mt-2">{this.platformType()}{this.micRequired()}</div>
                     <p className='text-sm mt-2'>{this.props.lobby.region} • {this.props.lobby.skill_level}</p>
                     <p className="text-sm mt-4 text-white">{this.props.lobby.description}</p>
