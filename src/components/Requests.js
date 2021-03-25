@@ -5,7 +5,7 @@ const Requests = ({ requests, lobbyId }) => {
     const filteredRequests = requests.filter(request => request.lobby_id === lobbyId);
     
     const requestList = filteredRequests.map(request => {
-      return <Request id={request.id} request={request} />
+      return <Request request={request} />
     })
     
     return ( 
