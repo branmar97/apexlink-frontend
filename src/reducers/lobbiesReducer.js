@@ -9,13 +9,13 @@ const manageLobbies = (state = { list: [], current: {}, loading: false }, action
         case 'ADD_LOBBIES':
             return {
                 ...state,
-                list: action.lobbies,
+                list: action.lobbies.reverse(),
                 loading: false
             }
         case 'ADD_LOBBY':
             return {
                 ...state,
-                list: [ ...state.list, action.lobby]
+                list: [ action.lobby, ...state.list ]
             }
         case 'GET_LOBBY':
             return { 
