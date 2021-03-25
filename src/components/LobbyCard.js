@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import TimeAgo from 'timeago-react';
 
-const LobbyCard = ({id, gamertag, region, platform, gamemode, description, mic, skillLevel}) => {
+const LobbyCard = ({id, gamertag, region, platform, gamemode, description, mic, skillLevel, createdAt}) => {
     const micRequired = () => {
         if (mic) {
             return (
@@ -31,7 +32,9 @@ const LobbyCard = ({id, gamertag, region, platform, gamemode, description, mic, 
     return ( 
         <div className='card shadow-2xl bg-gray-500 bg-opacity-50 text-gray-200 p-10'>
             <div className="font-semibold text-xl tracking-wider uppercase"><h2><Link to={`/lobbies/${id}`}>{gamertag}</Link></h2></div>
-            <div className="text-sm"><p>{gamemode} • 30 min</p></div>
+            <div className="text-sm"><p>{gamemode} • {<TimeAgo datetime={createdAt}
+                                                                                        locale='en'
+                                                                                                />}</p></div>
             <div className="flex mt-2">{platformType()} {micRequired()}</div>
             <div className="text-sm mt-2"><p>{region} • {skillLevel}</p></div>
             <div className="text-sm mt-4 text-white"><p>{description}</p></div>

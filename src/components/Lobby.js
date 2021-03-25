@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import RequestsContainer from '../containers/RequestsContainer';
 import { connect } from 'react-redux';
 import { getLobby } from '../actions/lobbyActions';
+import TimeAgo from 'timeago-react';
 
 class Lobby extends Component {
     componentDidMount() {
@@ -43,7 +44,9 @@ class Lobby extends Component {
                         <h2 className="font-semibold text-4xl tracking-wider uppercase mr-4">{this.props.lobby.gamertag}</h2>
                         <img src="https://img.icons8.com/android/40/ffffff/crown.png"/>
                     </div>
-                    <p className="text-sm mt-4">{this.props.lobby.gamemode} • 30 min</p>
+                    <p className="text-sm mt-4">{this.props.lobby.gamemode} • {<TimeAgo datetime={this.props.lobby.created_at}
+                                                                                        locale='en'
+                                                                                                />}</p>
                     <div className="flex mt-2">{this.platformType()}{this.micRequired()}</div>
                     <p className='text-sm mt-2'>{this.props.lobby.region} • {this.props.lobby.skill_level}</p>
                     <p className="text-sm mt-4 text-white">{this.props.lobby.description}</p>

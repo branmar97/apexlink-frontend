@@ -12,6 +12,7 @@ class Lobbies extends Component {
             description={lobby.description}
             mic={lobby.mic_required}
             skillLevel={lobby.skill_level}
+            createdAt={lobby.created_at}
             // userId={lobby.user_id}
             />)
     }
