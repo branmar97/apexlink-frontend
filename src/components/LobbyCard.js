@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import TimeAgo from 'timeago-react';
 
-const LobbyCard = ({id, gamertag, region, platform, gamemode, description, mic, skillLevel, createdAt}) => {
+const LobbyCard = ({id, gamertag, region, platform, gamemode, description, mic, skillLevel, createdAt, requests}) => {
     const micRequired = () => {
         if (mic) {
             return (
@@ -28,6 +28,12 @@ const LobbyCard = ({id, gamertag, region, platform, gamemode, description, mic, 
             )
         }
     }
+
+    const renderCount = () => {
+        const filteredRequests = requests.filter(request => request.lobby_id === id);
+    
+        return filteredRequests.length
+    }
     
     return ( 
         <div className='card shadow-2xl bg-gray-500 bg-opacity-50 text-gray-200 p-10'>
@@ -41,7 +47,7 @@ const LobbyCard = ({id, gamertag, region, platform, gamemode, description, mic, 
             <div className="mt-8 inline-block float-left">
                 <svg className="w-6 h-6 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
 
-                <span className='text-sm ml-1 mt-0.5'>7 Interested</span>  
+                <span className='text-sm ml-1 mt-0.5'>{renderCount()} Interested</span>  
             </div>
             <div className="mt-6 inline-block float-right">
                 <Link to={`/lobbies/${id}`}>
