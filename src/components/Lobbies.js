@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 import LobbyCard from './LobbyCard';
+import { connect } from 'react-redux';
+import { fetchRequests } from '../actions/requestActions';
+
 
 class Lobbies extends Component {
+    componentDidMount() {
+        this.props.fetchRequests()
+    }
+    
     listLobbies = () => {
         return this.props.lobbies.map(lobby => <LobbyCard 
             id={lobby.id} 
@@ -13,6 +20,7 @@ class Lobbies extends Component {
             mic={lobby.mic_required}
             skillLevel={lobby.skill_level}
             createdAt={lobby.created_at}
+            requests={this.props.requests}
             // userId={lobby.user_id}
             />)
     }
@@ -30,5 +38,18 @@ class Lobbies extends Component {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        requests: state.requests.list,
+        loading: state.requests.loading
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchRequests: () => dispatch(fetchRequests())
+    }
+}
+
  
-export default Lobbies;
+export default connect(mapStateToProps, mapDispatchToProps)(Lobbies);
