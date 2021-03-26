@@ -10,7 +10,7 @@ const Nav = ({toggle}) => {
                 
             <img className='object-contain h-full hover:scale-150' src={apexlinkLogo} alt='Logo' />
             
-            <span className='text-red-500'>APEX</span>LINK
+            <span className='text-red-500 hover:scale-125'>APEX</span>LINK
             
             </Link>
 
@@ -24,9 +24,9 @@ const Nav = ({toggle}) => {
             </div>
 
             <div className='pr-8 md:block hidden font-heebo uppercase'>
-                <Link to='/' className='p-4'>Home</Link>
-                <Link to='/about' className='p-4'>About</Link>
-                <Link to='/lobbies' className='p-4 pr-12'>Browse</Link>
+                <Link to='/' className='p-4 hover:text-red-500'>Home</Link>
+                <Link to='/about' className='p-4 hover:text-red-500'>About</Link>
+                <Link to='/lobbies' className='p-4 pr-12 hover:text-red-500'>Browse</Link>
             </div>
         </nav>
      );
