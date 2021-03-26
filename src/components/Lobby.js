@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import RequestsContainer from '../containers/RequestsContainer';
 import { connect } from 'react-redux';
 import { getLobby } from '../actions/lobbyActions';
+import { Link } from 'react-router-dom'
 import TimeAgo from 'timeago-react';
 
 class Lobby extends Component {
@@ -38,6 +39,14 @@ class Lobby extends Component {
     render() { 
         return (
             <div className='bg-transparent font-heebo text-white my-32 px-4 max-w-6xl mx-auto'>
+                <Link to='/lobbies'>
+                    <span className='flex mb-4'>
+                        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path                 strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                        </svg>
+                        <p className='mt-0.5 ml-2 text-xl'>Back</p>
+                    </span>
+                </Link>
+
                 <div className='shadow-2xl bg-gray-500 bg-opacity-50 text-gray-200 p-10'>  
                     <p className="text-sm mb-6 mt-2 float-right">Lobby #{this.props.lobby.id}</p>
                     <div className='flex'>
