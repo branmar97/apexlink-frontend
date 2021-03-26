@@ -6,8 +6,8 @@ const Home = () => {
         <div className='bg-transparent h-screen flex flex-col
         justify-center items-center font-heebo'>
 
-            <h1 className='text-6xl text-red-500 uppercase mb-4'>Build Your Next Elite Squad</h1>
-            <p className='text-2xl text-white uppercase mb-4'>Connect with others and find the best teammates</p>
+            <h1 className='text-4xl sm:text-6xl text-red-500 uppercase text-center mb-4'>Build Your Next Elite Squad</h1>
+            <p className='text-xl sm:text-2xl text-white text-center mb-4'>Connect With Others and Find The Best Teammates</p>
 
             <Link to='/about'><button className="bg-transparent hover:bg-red-500 text-white hover:text-white py-4 px-8 border border-white hover:border-transparent uppercase mt-10">Learn More</button></Link>
         </div>
