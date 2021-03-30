@@ -1,4 +1,5 @@
 import React, { Component, useImperativeHandle } from 'react';
+import Lobbies from './Lobbies';
 
 class Search extends Component {
     constructor(props) {
@@ -17,13 +18,45 @@ class Search extends Component {
         })
     }
 
-    handleFilter = () => {
-        const lobbies = this.props.lobbies
+    nameFilter = (lobby) => {
+        if (this.state.searchTerm == '') {
+            return lobby 
+        } else if (lobby.gamertag.toLowerCase().includes(this.state.searchTerm.toLowerCase())) {
+            return lobby
+        }
+    }
+
+    regionFilter = (lobby) => {
+        if (this.state.searchRegion == 'all') {
+            return lobby 
+        } else if (lobby.region.toLowerCase().includes(this.state.searchRegion.toLowerCase())) {
+            return lobby 
+        }
+    }
+
+    platformFilter = (lobby) => {
+        if (this.state.searchPlatform == 'all') {
+            return lobby 
+        } else if (lobby.platform.toLowerCase().includes(this.state.searchPlatform.toLowerCase())) {
+            return lobby 
+        }
+    }
+
+    gamemodeFilter = (lobby) => {
+        if (this.state.searchGamemode == 'all') {
+            return lobby 
+        } else if (lobby.gamemode.toLowerCase().includes(this.state.searchGamemode.toLowerCase())) {
+            return lobby 
+        }
+    }
+
+    filteredLobbies = () => {
+        return this.props.lobbies.filter(this.nameFilter).filter(this.regionFilter).filter(this.platformFilter).filter(this.gamemodeFilter)
     }
 
     render() { 
         return ( 
-            <div className='px-4 max-w-6xl mx-auto mt-16'>
+            <div className='px-4 max-w-6xl mx-auto mt-16 bg-transparent'>
                 <h2 className='font-bold text-2xl uppercase mb-6'>Browse Lobbies</h2>
 
                 <form>
@@ -66,8 +99,8 @@ class Search extends Component {
                             >
                                 <option value='all'>All</option>
                                 <option value='pc'>PC</option>
-                                <option value='pc'>Xbox</option>
-                                <option value='pc'>Playstation</option>
+                                <option value='xbox'>Xbox</option>
+                                <option value='playstation'>Playstation</option>
                             </select>
                         </div>
 
@@ -87,6 +120,8 @@ class Search extends Component {
                         </div>
                     </div>
                 </form>
+
+                <Lobbies lobbies={this.filteredLobbies()} />
             </div>
          );
     }

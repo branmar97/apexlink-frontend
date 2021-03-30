@@ -16,7 +16,7 @@ class LobbiesContainer extends Component {
              font-heebo text-white my-32'>
                 <LobbyForm addLobby={this.props.addLobby} />
                 <Search lobbies={this.props.lobbies} />
-                <Lobbies lobbies={this.props.lobbies} />
+                {/* <Lobbies lobbies={this.props.lobbies} /> */}
             </div>
          );
     }
