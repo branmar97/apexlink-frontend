@@ -1,16 +1,93 @@
-import React, { Component } from 'react';
+import React, { Component, useImperativeHandle } from 'react';
 
 class Search extends Component {
     constructor(props) {
         super(props);
         this.state = { 
             searchTerm: '',
-            searchType: 'all'
+            searchPlatform: 'all',
+            searchGamemode: 'all',
+            searchRegion: 'all'
          }
     }
+
+    handleOnChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
+
+    handleFilter = () => {
+        const lobbies = this.props.lobbies
+    }
+
     render() { 
         return ( 
-            <div></div>
+            <div className='px-4 max-w-6xl mx-auto mt-16'>
+                <h2 className='font-bold text-2xl uppercase mb-6'>Browse Lobbies</h2>
+
+                <form>
+                    <div class="flex flex-wrap -mx-4 mb-2">
+                        <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+                            <label className='block uppercase tracking-wide text-white text-xs font-bold mb-2' htmlFor='regionText'>Name</label>
+
+                            <input 
+                            className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
+                            type='text' 
+                            name='searchTerm' 
+                            value={this.state.searchTerm} 
+                            placeholder='Search...' 
+                            onChange={this.handleOnChange} />
+                        </div>
+
+                        <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+                            <label className='block uppercase tracking-wide text-white text-xs font-bold mb-2' htmlFor='regionText'>Region</label>
+                            <div class="relative">
+                                <select 
+                                className='block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
+                                name='searchRegion'
+                                onChange={this.handleOnChange}
+                                >
+                                    <option value='all'>All</option>
+                                    <option value='united states'>United States</option>
+                                    <option value='canada'>Canada</option>
+                                    <option value='united kingdom'>United Kingdom</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+                            <label className='block uppercase tracking-wide text-white text-xs font-bold mb-2' htmlFor='regionText'>Platform</label>
+                            
+                            <select 
+                            className='block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
+                            name='searchPlatform'
+                            onChange={this.handleOnChange}
+                            >
+                                <option value='all'>All</option>
+                                <option value='pc'>PC</option>
+                                <option value='pc'>Xbox</option>
+                                <option value='pc'>Playstation</option>
+                            </select>
+                        </div>
+
+                        <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+                            <label className='block uppercase tracking-wide text-white text-xs font-bold mb-2' htmlFor='regionText'>Gamemode</label>
+                            
+                            <select 
+                            className='block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
+                            name='searchGamemode'
+                            onChange={this.handleOnChange}
+                            >
+                                <option value='all'>All</option>
+                                <option value='duos'>Duos</option>
+                                <option value='trios'>Trios</option>
+                                <option value='ranked'>Ranked</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
          );
     }
 }
