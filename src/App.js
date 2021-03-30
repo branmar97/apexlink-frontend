@@ -18,14 +18,14 @@ function App() {
 
   return (
     <Router>
-        <div className='bg-wraith bg-center bg-top bg-cover bg-no-repeat bg-fixed pb-16'>
+        <div className='bg-wraith bg-center bg-top bg-cover bg-no-repeat bg-fixed pb-72'>
               <Nav toggle={toggle} />
               <Dropdown isOpen={isOpen} toggle={toggle} />
               <Route exact path="/" component={Home} />
               <Route exact path='/about' component={About} />
               <Route exact path="/lobbies" component={LobbiesContainer} />
               <Route path="/lobbies/:id" component={Lobby} />
-            </div>
+        </div>
     </Router>
   );
 }

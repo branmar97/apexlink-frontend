@@ -55,6 +55,19 @@ class Search extends Component {
     }
 
     render() { 
+        const renderLobbies = () => {
+            if (this.filteredLobbies().length > 0) {
+                return (
+                    <Lobbies lobbies={this.filteredLobbies()} />
+                )
+            } else {
+                return (
+                    <div>
+                        <h2 className='text-center text-white mt-16'>There are no lobbies to display.</h2>
+                    </div>
+                )
+            }
+        }
         return ( 
             <div className='px-4 max-w-6xl mx-auto mt-16 bg-transparent'>
                 <h2 className='font-bold text-2xl uppercase mb-6'>Browse Lobbies</h2>
@@ -120,8 +133,8 @@ class Search extends Component {
                         </div>
                     </div>
                 </form>
-
-                <Lobbies lobbies={this.filteredLobbies()} />
+                
+                {renderLobbies()}
             </div>
          );
     }
