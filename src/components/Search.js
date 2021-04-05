@@ -63,7 +63,7 @@ class Search extends Component {
             } else {
                 return (
                     <div>
-                        <h2 className='text-center text-white mt-16'>There are no lobbies to display.</h2>
+                        <h2 className='text-center text-white h-screen px-4 max-w-6xl mx-auto bg-transparent mt-16'>There are no lobbies to display.</h2>
                     </div>
                 )
             }
