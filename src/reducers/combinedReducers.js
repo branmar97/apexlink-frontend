@@ -4,7 +4,8 @@ import manageRequests from './requestsReducer';
 
 const rootReducer = combineReducers({
     lobbies: manageLobbies,
-    requests: manageRequests
+    requests: manageRequests,
+    auth: (state, action) => 'testing'
 });
 
 export default rootReducer;
