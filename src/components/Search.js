@@ -73,8 +73,8 @@ class Search extends Component {
                 <h2 className='font-bold text-2xl uppercase mb-6'>Browse Lobbies</h2>
 
                 <form>
-                    <div class="flex flex-wrap -mx-4 mb-2">
-                        <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+                    <div className="flex flex-wrap -mx-4 mb-2">
+                        <div className="w-full md:w-1/4 px-3 mb-6 md:mb-0">
                             <label className='block uppercase tracking-wide text-white text-xs font-bold mb-2' htmlFor='regionText'>Name</label>
 
                             <input 
@@ -86,9 +86,9 @@ class Search extends Component {
                             onChange={this.handleOnChange} />
                         </div>
 
-                        <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+                        <div className="w-full md:w-1/4 px-3 mb-6 md:mb-0">
                             <label className='block uppercase tracking-wide text-white text-xs font-bold mb-2' htmlFor='regionText'>Region</label>
-                            <div class="relative">
+                            <div className="relative">
                                 <select 
                                 className='block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
                                 name='searchRegion'
@@ -102,7 +102,7 @@ class Search extends Component {
                             </div>
                         </div>
 
-                        <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+                        <div className="w-full md:w-1/4 px-3 mb-6 md:mb-0">
                             <label className='block uppercase tracking-wide text-white text-xs font-bold mb-2' htmlFor='regionText'>Platform</label>
                             
                             <select 
@@ -117,7 +117,7 @@ class Search extends Component {
                             </select>
                         </div>
 
-                        <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+                        <div className="w-full md:w-1/4 px-3 mb-6 md:mb-0">
                             <label className='block uppercase tracking-wide text-white text-xs font-bold mb-2' htmlFor='regionText'>Gamemode</label>
                             
                             <select 
