@@ -1,7 +1,7 @@
 export const fetchRequests = () => {
     return (dispatch) => {
         dispatch({ type: 'LOADING_REQUESTS'})
-        fetch('http://localhost:3000/requests')
+        fetch('http://localhost:3001/requests')
         .then(response => {
           return response.json()
         })
@@ -13,7 +13,7 @@ export const fetchRequests = () => {
 
 export const addRequest = (data) => {
   return dispatch => {
-    fetch('http://localhost:3000/requests', {
+    fetch('http://localhost:3001/requests', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
