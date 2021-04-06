@@ -23,11 +23,11 @@ class Lobby extends Component {
     platformType = () => {
         if (this.props.lobby.platform === "Xbox") {
             return (
-                <img src="https://img.icons8.com/fluent/24/000000/xbox.png"/>
+                <img alt='Xbox Icon' src="https://img.icons8.com/fluent/24/000000/xbox.png"/>
             )
         } else if (this.props.lobby.platform === "Playstation") {
             return (
-                <img src="https://img.icons8.com/color/24/000000/play-station.png"/>
+                <img alt='Playstation Icon' src="https://img.icons8.com/color/24/000000/play-station.png"/>
             )
         } else {
             return (
@@ -51,7 +51,7 @@ class Lobby extends Component {
                     <p className="text-sm mb-6 mt-2 float-right">Lobby #{this.props.lobby.id}</p>
                     <div className='flex'>
                         <h2 className="font-semibold text-4xl tracking-wider uppercase mr-4">{this.props.lobby.gamertag}</h2>
-                        <img src="https://img.icons8.com/android/40/ffffff/crown.png"/>
+                        <img alt='Host Icon' src="https://img.icons8.com/android/40/ffffff/crown.png"/>
                     </div>
                     <p className="text-sm mt-4">{this.props.lobby.gamemode} • {<TimeAgo datetime={this.props.lobby.created_at}
                                                                                         locale='en'

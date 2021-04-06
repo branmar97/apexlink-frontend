@@ -16,11 +16,11 @@ const LobbyCard = ({id, gamertag, region, platform, gamemode, description, mic, 
     const platformType = () => {
         if (platform === "Xbox") {
             return (
-                <img src="https://img.icons8.com/fluent/24/000000/xbox.png"/>
+                <img alt='Xbox Icon' src="https://img.icons8.com/fluent/24/000000/xbox.png"/>
             )
         } else if (platform === "Playstation") {
             return (
-                <img src="https://img.icons8.com/color/24/000000/play-station.png"/>
+                <img alt='Playstation Icon' src="https://img.icons8.com/color/24/000000/play-station.png"/>
             )
         } else {
             return (
