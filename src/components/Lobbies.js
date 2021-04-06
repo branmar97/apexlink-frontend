@@ -11,7 +11,8 @@ class Lobbies extends Component {
     
     listLobbies = () => {
         return this.props.lobbies.map(lobby => <LobbyCard 
-            id={lobby.id} 
+            key={lobby.id} 
+            id={lobby.id}
             gamertag={lobby.gamertag}
             region={lobby.region} 
             platform={lobby.platform} 
