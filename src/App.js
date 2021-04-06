@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Nav from './components/Nav';
 import Dropdown from './components/Dropdown';
@@ -7,7 +7,7 @@ import About from './components/About';
 import Lobby from './components/Lobby'
 import LobbiesContainer from './containers/LobbiesContainer';
 
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);

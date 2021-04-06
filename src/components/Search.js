@@ -1,4 +1,4 @@
-import React, { Component, useImperativeHandle } from 'react';
+import React, { Component } from 'react';
 import Lobbies from './Lobbies';
 
 class Search extends Component {
@@ -19,7 +19,7 @@ class Search extends Component {
     }
 
     nameFilter = (lobby) => {
-        if (this.state.searchTerm == '') {
+        if (this.state.searchTerm === '') {
             return lobby 
         } else if (lobby.gamertag.toLowerCase().includes(this.state.searchTerm.toLowerCase())) {
             return lobby
@@ -27,7 +27,7 @@ class Search extends Component {
     }
 
     regionFilter = (lobby) => {
-        if (this.state.searchRegion == 'all') {
+        if (this.state.searchRegion === 'all') {
             return lobby 
         } else if (lobby.region.toLowerCase().includes(this.state.searchRegion.toLowerCase())) {
             return lobby 
@@ -35,7 +35,7 @@ class Search extends Component {
     }
 
     platformFilter = (lobby) => {
-        if (this.state.searchPlatform == 'all') {
+        if (this.state.searchPlatform === 'all') {
             return lobby 
         } else if (lobby.platform.toLowerCase().includes(this.state.searchPlatform.toLowerCase())) {
             return lobby 
@@ -43,7 +43,7 @@ class Search extends Component {
     }
 
     gamemodeFilter = (lobby) => {
-        if (this.state.searchGamemode == 'all') {
+        if (this.state.searchGamemode === 'all') {
             return lobby 
         } else if (lobby.gamemode.toLowerCase().includes(this.state.searchGamemode.toLowerCase())) {
             return lobby 
