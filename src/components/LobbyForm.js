@@ -87,9 +87,10 @@ class LobbyForm extends Component {
                     <select 
                     className='border border-gray-400 block py-2 px-4 w-full focus:outline-none focus:border-red-500 text-black mb-6'
                     name='regionText'
+                    defaultValue=''
                     onChange={this.handleOnChange}
                     >
-                        <option disabled selected value> 
+                        <option disabled value=''> 
                             Select an Option 
                         </option> 
                         <option value='United States'>United States</option>
@@ -102,9 +103,10 @@ class LobbyForm extends Component {
                     <select 
                     className='border border-gray-400 block py-2 px-4 w-full focus:outline-none focus:border-red-500 text-black mb-6'
                     name='platformText'
+                    defaultValue=''
                     onChange={this.handleOnChange}
                     >
-                        <option disabled selected value> 
+                        <option disabled value=''> 
                             Select an Option 
                         </option> 
                         <option value='PC'>PC</option>
@@ -117,9 +119,10 @@ class LobbyForm extends Component {
                     <select 
                     className='border border-gray-400 block py-2 px-4 w-full focus:outline-none focus:border-red-500 text-black mb-6'
                     name='gamemodeText'
+                    defaultValue=''
                     onChange={this.handleOnChange}
                     >
-                        <option disabled selected value> 
+                        <option disabled value=''> 
                             Select an Option 
                         </option> 
                         <option value='Duos'>Duos</option>
@@ -132,9 +135,10 @@ class LobbyForm extends Component {
                     <select 
                     className='border border-gray-400 block py-2 px-4 w-full focus:outline-none focus:border-red-500 text-black mb-6'
                     name='skillText'
+                    defaultValue=''
                     onChange={this.handleOnChange}
                     >
-                        <option disabled selected value> 
+                        <option disabled value=''> 
                             Select an Option 
                         </option> 
                         <option value='Beginner'>Beginner</option>
