@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { signupUser } from "../../actions/auth";
 
-class Signup extends Component {
+class Signup extends React.Component {
     state = { 
         email: '',
         password: '',
@@ -37,7 +37,7 @@ class Signup extends Component {
 
             <fieldset>
             <label className='' htmlFor='email'>
-                Email:
+                Email
             </label>
             <input
                 type='text'
@@ -51,7 +51,7 @@ class Signup extends Component {
 
             <fieldset>
             <label className='' htmlFor='password'>
-                Password:
+                Password
             </label>
             <input
                 type='password'
@@ -65,7 +65,7 @@ class Signup extends Component {
 
             <fieldset>
             <label className='' htmlFor='gamertag'>
-                Name:
+                Gamertag
             </label>
             <input
                 type='text'
@@ -79,7 +79,7 @@ class Signup extends Component {
 
             <fieldset>
             <label className='' htmlFor='platform'>
-                Platform:
+                Platform
             </label>
             <select 
                 className=''

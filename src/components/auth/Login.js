@@ -34,7 +34,7 @@ class Login extends React.Component {
           <p className="">{this.state.error && "Invalid email or password"}</p>
           <fieldset>
             <label className='' for='email'>
-              Email:
+              Email
             </label>
             <input
               type='text'
@@ -47,7 +47,7 @@ class Login extends React.Component {
           </fieldset>
           <fieldset>
             <label className='' for='password'>
-              Password:
+              Password
             </label>
             <input
               type='password'
