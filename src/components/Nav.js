@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import apexlinkLogo from '../images/apexlinkLogo.png';
 
-const Nav = ({ toggle }) => {
+const Nav = ({ toggle, authChecked, loggedIn, currentUser }) => {
     return ( 
         <nav className='flex justify-between items-center h-16 bg-transparent fixed text-white relative font-mono pt-16 pb-16 mb-10' role='navigation'>
             {/* Logo */}
@@ -34,4 +34,8 @@ const Nav = ({ toggle }) => {
      );
 }
  
-export default Nav;
+const mapStateToProps = ({ auth: { authChecked, loggedIn, currentUser } }) => {
+    return { authChecked, loggedIn, currentUser };
+};
+  
+export default connect(mapStateToProps)(Nav);
