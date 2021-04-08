@@ -5,6 +5,8 @@ import Dropdown from './components/Dropdown';
 import Home from './components/Home';
 import About from './components/About';
 import Lobby from './components/Lobby'
+import Signup from './components/auth/Signup';
+import Login from './components/auth/Login';
 import LobbiesContainer from './containers/LobbiesContainer';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -25,6 +27,8 @@ function App() {
               <Route exact path='/about' component={About} />
               <Route exact path="/lobbies" component={LobbiesContainer} />
               <Route path="/lobbies/:id" component={Lobby} />
+              <Route exact path='/signup' component={Signup} />
+              <Route exact path='/login' component={Login} />
         </div>
     </Router>
   );
