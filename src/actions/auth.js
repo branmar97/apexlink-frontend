@@ -67,3 +67,25 @@ export const signupUser = (credentials) => {
       });
     };
   };
+
+  export const logoutUser = () => {
+    return (dispatch) => {
+      return fetch("http://localhost:3001/logout", {
+        method: "DELETE",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          Authorization: getToken(),
+        },
+      }).then((res) => {
+        if (res.ok) {
+          return dispatch({ type: NOT_AUTHENTICATED });
+        } else {
+          return res.json().then((errors) => {
+            dispatch({ type: NOT_AUTHENTICATED });
+            return Promise.reject(errors);
+          });
+        }
+      });
+    };
+  };
