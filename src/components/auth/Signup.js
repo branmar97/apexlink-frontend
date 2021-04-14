@@ -8,6 +8,7 @@ class Signup extends React.Component {
         password: '',
         gamertag: '',
         platform: '',
+        region: '',
         errors: {status: {message: ''}}
     }
 
@@ -19,9 +20,9 @@ class Signup extends React.Component {
     
     handleSubmit = (event) => {
         event.preventDefault();
-        const { email, password, gamertag, platform } = this.state;
+        const { email, password, gamertag, platform, region } = this.state;
         this.props
-            .dispatchSignupUser({ email, password, gamertag, platform })
+            .dispatchSignupUser({ email, password, gamertag, platform, region })
             .then(() => this.props.history.push("/"))
             .catch((errors) => this.setState({ errors }));
     };
@@ -94,6 +95,25 @@ class Signup extends React.Component {
                     <option value='Xbox'>Xbox</option>
                     <option value='Playstation'>Playstation</option>
             </select>
+            </fieldset>
+
+            <fieldset>
+            <label className='' htmlFor='region'>
+                Region
+            </label>
+                <select 
+                    className='border border-gray-400 block py-2 px-4 w-full focus:outline-none focus:border-red-500 text-black mb-6'
+                    name='regionText'
+                    defaultValue=''
+                    onChange={this.handleChange}
+                    >
+                        <option disabled value=''> 
+                            Select an Option 
+                        </option> 
+                        <option value='United States'>United States</option>
+                        <option value='Canada'>Canada</option>
+                        <option value='United Kingdom'>United Kingdom</option>
+                </select>
             </fieldset>
 
             <input
