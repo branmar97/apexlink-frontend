@@ -15,8 +15,10 @@ class Nav extends React.Component {
         if (authChecked) {
             return loggedIn ? (
                 <>
-                    {currentUser.email}
-                    <Logout />
+                    <span className='ml-12'>
+                        Signed in as: <span className='ml-2 text-red-500'>{currentUser.gamertag}</span>
+                    </span>
+                    {/* <Logout /> */}
                 </>
             ) : (
                 <>
