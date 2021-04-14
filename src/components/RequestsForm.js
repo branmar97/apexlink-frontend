@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 
 class RequestsForm extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            gamertagText: '',
             descriptionText: ''
          }
     }
@@ -18,14 +18,14 @@ class RequestsForm extends Component {
     handleOnSubmit = event => {
         event.preventDefault()
         const request = {
-            gamertag: this.state.gamertagText,
+            user_id: this.props.currentUser.id,
+            gamertag: this.props.currentUser.gamertag,
             description: this.state.descriptionText,
             lobby_id: this.props.lobbyId
         }
         this.props.addRequest(request)
 
         this.setState({
-            gamertagText: '',
             descriptionText: ''
         })
     }
@@ -35,17 +35,6 @@ class RequestsForm extends Component {
             <div>
                 <form className='mx-auto' onSubmit={this.handleOnSubmit}>
                     <h2 className='font-bold text-2xl uppercase mb-6'>Request to Join</h2>
-
-                    <label htmlFor='gamertagText'>Gamertag</label>
-
-                    <input
-                        className='border border-gray-400 block py-2 px-4 w-full focus:outline-none focus:border-red-500 text-black mb-6'
-                        type='text'
-                        name='gamertagText'
-                        value={this.state.gamertagText}
-                        onChange={this.handleOnChange}
-                        placeholder='ex. EliteGamer28'
-                    />
 
                     <label htmlFor='descriptionText'>Description</label>
 
@@ -63,5 +52,9 @@ class RequestsForm extends Component {
          );
     }
 }
+
+const mapStateToProps = ({ auth: { currentUser } }) => {
+    return { currentUser };
+};
  
-export default RequestsForm;
+export default connect(mapStateToProps)(RequestsForm);
