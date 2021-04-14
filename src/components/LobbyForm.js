@@ -5,7 +5,6 @@ class LobbyForm extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            regionText: '',
             gamemodeText: '',
             descriptionText: '',
             micBool: false,
@@ -26,7 +25,7 @@ class LobbyForm extends Component {
             user_id: this.props.currentUser.id,
             gamertag: this.props.currentUser.gamertag,
             platform: this.props.currentUser.platform,
-            region: this.state.regionText,
+            region: this.props.currentUser.region,
             gamemode: this.state.gamemodeText,
             description: this.state.descriptionText,
             mic_required: this.state.micBool,
@@ -69,22 +68,6 @@ class LobbyForm extends Component {
                 <button className='bg-transparent hover:bg-red-500 text-white hover:text-white py-2 px-6 border border-white hover:border-transparent uppercase float-right' onClick={this.handleShowForm}>{this.state.hidden ? 'Create Lobby' : 'Hide Form'}</button>
                 <form className={this.state.hidden ? 'hidden' : ''} onSubmit={this.handleOnSubmit}>
                     <h1 className='font-bold text-2xl uppercase mb-6'>Create Lobby</h1>
-                    
-                    <label htmlFor='regionText'>Region</label>
-
-                    <select 
-                    className='border border-gray-400 block py-2 px-4 w-full focus:outline-none focus:border-red-500 text-black mb-6'
-                    name='regionText'
-                    defaultValue=''
-                    onChange={this.handleOnChange}
-                    >
-                        <option disabled value=''> 
-                            Select an Option 
-                        </option> 
-                        <option value='United States'>United States</option>
-                        <option value='Canada'>Canada</option>
-                        <option value='United Kingdom'>United Kingdom</option>
-                    </select>
 
                     <label htmlFor='gamemodeText'>Gamemode</label>
 
@@ -102,7 +85,7 @@ class LobbyForm extends Component {
                         <option value='Ranked'>Ranked</option>
                     </select>
 
-                    <label htmlFor='skillText'>Skill</label>
+                    <label htmlFor='skillText'>Skill Level</label>
 
                     <select 
                     className='border border-gray-400 block py-2 px-4 w-full focus:outline-none focus:border-red-500 text-black mb-6'
