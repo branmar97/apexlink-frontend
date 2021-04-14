@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 
 class LobbyForm extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            gamertagText: '',
             regionText: '',
-            platformText: '',
             gamemodeText: '',
             descriptionText: '',
             micBool: false,
@@ -24,9 +23,10 @@ class LobbyForm extends Component {
     handleOnSubmit = event => {
         event.preventDefault()
         const lobby = {
-            gamertag: this.state.gamertagText,
+            user_id: this.props.currentUser.id,
+            gamertag: this.props.currentUser.gamertag,
+            platform: this.props.currentUser.platform,
             region: this.state.regionText,
-            platform: this.state.platformText,
             gamemode: this.state.gamemodeText,
             description: this.state.descriptionText,
             mic_required: this.state.micBool,
@@ -37,7 +37,6 @@ class LobbyForm extends Component {
         event.target.reset()
 
         this.setState({
-            gamertagText: '',
             descriptionText: '',
             micBool: false,
         })
@@ -71,17 +70,6 @@ class LobbyForm extends Component {
                 <form className={this.state.hidden ? 'hidden' : ''} onSubmit={this.handleOnSubmit}>
                     <h1 className='font-bold text-2xl uppercase mb-6'>Create Lobby</h1>
                     
-                    <label htmlFor='gamertagText'>Gamertag</label>
-                    
-                    <input 
-                    className='border border-gray-400 block py-2 px-4 w-full focus:outline-none focus:border-red-500 text-black mb-6'
-                    type='text' 
-                    name='gamertagText'
-                    value={this.state.gamertagText}
-                    onChange={this.handleOnChange}
-                    placeholder='ex. EliteGamer28'
-                    />
-
                     <label htmlFor='regionText'>Region</label>
 
                     <select 
@@ -96,22 +84,6 @@ class LobbyForm extends Component {
                         <option value='United States'>United States</option>
                         <option value='Canada'>Canada</option>
                         <option value='United Kingdom'>United Kingdom</option>
-                    </select>
-
-                    <label htmlFor='platformText'>Platform</label>
-
-                    <select 
-                    className='border border-gray-400 block py-2 px-4 w-full focus:outline-none focus:border-red-500 text-black mb-6'
-                    name='platformText'
-                    defaultValue=''
-                    onChange={this.handleOnChange}
-                    >
-                        <option disabled value=''> 
-                            Select an Option 
-                        </option> 
-                        <option value='PC'>PC</option>
-                        <option value='Xbox'>Xbox</option>
-                        <option value='Playstation'>Playstation</option>
                     </select>
 
                     <label htmlFor='gamemodeText'>Gamemode</label>
@@ -173,5 +145,9 @@ class LobbyForm extends Component {
          );
     }
 }
+
+const mapStateToProps = ({ auth: { currentUser } }) => {
+    return { currentUser };
+};
  
-export default LobbyForm;
+export default connect(mapStateToProps)(LobbyForm);
