@@ -19,9 +19,9 @@ class Signup extends React.Component {
     
     handleSubmit = (event) => {
         event.preventDefault();
-        const { email, password } = this.state;
+        const { email, password, gamertag, platform } = this.state;
         this.props
-            .dispatchSignupUser({ email, password })
+            .dispatchSignupUser({ email, password, gamertag, platform })
             .then(() => this.props.history.push("/"))
             .catch((errors) => this.setState({ errors }));
     };
