@@ -1,17 +1,14 @@
-import React from "react";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/auth";
-import { useHistory } from "react-router-dom";
 
 const Logout = ({ dispatchLogoutUser }) => {
-  const history = useHistory();
-  
   const handleClick = () => {
-    dispatchLogoutUser().then(() => history.push("/"));
+    dispatchLogoutUser()
   };
 
   return (
-    <button className='p-4' onClick={handleClick}>
+    // Display button to logout user on click
+    <button className='p-4 mr-12 text-white hover:text-red-500' onClick={handleClick}>
       Logout
     </button>
   );
