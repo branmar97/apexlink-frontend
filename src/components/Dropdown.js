@@ -8,7 +8,7 @@ const Dropdown = ({isOpen, toggle, authChecked, loggedIn, currentUser, dispatchC
     useEffect(
         () => {
             dispatchCheckAuth()
-        }
+        }, []
     );
 
     const renderAuthLinks = () => {
