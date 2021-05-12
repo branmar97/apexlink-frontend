@@ -31,9 +31,9 @@ class Signup extends React.Component {
         return ( 
         <form
             onSubmit={this.handleSubmit}
-            className=''
+            className='my-32 px-4 max-w-6xl mx-auto text-white'
         >
-            <h1 className=''>Sign Up</h1>
+            <h1 className='font-bold text-2xl uppercase mb-6 text-white'>Sign Up</h1>
             <p className=''>{this.state.errors.status.message}</p>
 
             <fieldset>
@@ -44,7 +44,7 @@ class Signup extends React.Component {
                 type='text'
                 name='email'
                 id='email'
-                className=''
+                className='border border-gray-400 block py-2 px-4 w-full focus:outline-none focus:border-red-500 text-black mb-6'
                 onChange={this.handleChange}
                 value={this.state.email}
             />
@@ -58,7 +58,7 @@ class Signup extends React.Component {
                 type='password'
                 name='password'
                 id='password'
-                className=''
+                className='border border-gray-400 block py-2 px-4 w-full focus:outline-none focus:border-red-500 text-black mb-6'
                 onChange={this.handleChange}
                 value={this.state.password}
             />
@@ -72,7 +72,7 @@ class Signup extends React.Component {
                 type='text'
                 name='gamertag'
                 id='gamertag'
-                className=''
+                className='border border-gray-400 block py-2 px-4 w-full focus:outline-none focus:border-red-500 text-black mb-6'
                 onChange={this.handleChange}
                 value={this.state.gamertag}
             />
@@ -83,7 +83,7 @@ class Signup extends React.Component {
                 Platform
             </label>
             <select 
-                className=''
+                className='border border-gray-400 block py-2 px-4 w-full focus:outline-none focus:border-red-500 text-black mb-6'
                 name='platform'
                 defaultValue=''
                 onChange={this.handleChange}
@@ -103,7 +103,7 @@ class Signup extends React.Component {
             </label>
                 <select 
                     className='border border-gray-400 block py-2 px-4 w-full focus:outline-none focus:border-red-500 text-black mb-6'
-                    name='regionText'
+                    name='region'
                     defaultValue=''
                     onChange={this.handleChange}
                     >
@@ -116,11 +116,13 @@ class Signup extends React.Component {
                 </select>
             </fieldset>
 
-            <input
-            className=''
+            <button
+            className='bg-transparent hover:bg-red-500 text-white hover:text-white py-2 px-6 border border-white hover:border-transparent uppercase mt-10'
             type='submit'
             value='Sign Up'
-            />
+            >
+             Signup
+            </button>
         </form>
         );
     }
