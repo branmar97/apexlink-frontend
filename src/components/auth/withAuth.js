@@ -14,10 +14,10 @@ function withAuth(WrappedComponent) {
       if (!this.props.authChecked) {
         return <LoadingSpinner />;
       } else if (!this.props.loggedIn) {
+        const errorMessage = 'You need to login to view this page.'
         return (
           <>
-            <Login />
-            <p>You need to login to view this page.</p>
+            <Login errorMessage={errorMessage} />
           </>
         );
       } else {
