@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { checkAuth } from "../actions/auth";
+import Logout from "./auth/Logout";
 import { Link } from 'react-router-dom';
 
 const Dropdown = ({isOpen, toggle}) => {
