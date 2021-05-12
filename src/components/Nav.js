@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import apexlinkLogo from '../images/apexlinkLogo.png';
 import Logout from "./auth/Logout";
 import { checkAuth } from "../actions/auth";
+
 
 class Nav extends React.Component {
     componentDidMount() {
@@ -15,10 +16,10 @@ class Nav extends React.Component {
         if (authChecked) {
             return loggedIn ? (
                 <>
-                    <span className='ml-12'>
-                        Signed in as: <span className='ml-2 text-red-500'>{currentUser.gamertag}</span>
+                    <span className='ml-12 mr-16'>
+                    <svg className="w-6 h-6 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg> <span className='ml-2 text-red-500'>{currentUser.gamertag}</span>
                     </span>
-                    {/* <Logout /> */}
+                    <Logout />
                 </>
             ) : (
                 <>
@@ -33,7 +34,7 @@ class Nav extends React.Component {
 
     render() {
         return (
-            <nav className='flex justify-between items-center h-16 bg-transparent fixed text-white relative font-mono pt-16 pb-16 mb-10' role='navigation'>
+            <nav className='flex justify-between items-center h-16 bg-transparent text-white relative font-mono pt-16 pb-16 mb-10' role='navigation'>
                 {/* Logo */}
                 <Link to="/" className='text-5xl tracking-widest mt-8 pl-16 flex justify-between items-center font-duke'>
                     
@@ -52,7 +53,7 @@ class Nav extends React.Component {
                     </svg>
                 </div>
 
-                <div className='pr-8 lg:block hidden font-heebo uppercase'>
+                <div className='pr-8 mt-8 mr-6 lg:block hidden font-heebo uppercase'>
                     <Link to='/' className='ml-4 mr-4 hover:text-red-500'>Home</Link>
                     <Link to='/about' className='ml-4 mr-4 hover:text-red-500'>About</Link>
                     <Link to='/lobbies' className='ml-4 mr-4  hover:text-red-500'>Browse</Link>
