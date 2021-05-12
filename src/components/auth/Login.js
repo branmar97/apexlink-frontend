@@ -28,41 +28,43 @@ class Login extends React.Component {
       return (
         <form
           onSubmit={this.handleSubmit}
-          className=''
+          className='my-32 px-4 max-w-6xl mx-auto text-white'
         >
-          <h1 className=''>Login</h1>
+          <h1 className='font-bold text-2xl uppercase mb-6 text-white'>Login</h1>
           <p className="">{this.state.error && "Invalid email or password"}</p>
           <fieldset>
-            <label className='' for='email'>
+            <label className='' htmlFor='email'>
               Email
             </label>
             <input
               type='text'
               name='email'
               id='email'
-              className=''
+              className='border border-gray-400 block py-2 px-4 w-full focus:outline-none focus:border-red-500 text-black mb-6'
               onChange={this.handleChange}
               value={this.state.email}
             />
           </fieldset>
           <fieldset>
-            <label className='' for='password'>
+            <label className='' htmlFor='password'>
               Password
             </label>
             <input
               type='password'
               name='password'
               id='password'
-              className=''
+              className='border border-gray-400 block py-2 px-4 w-full focus:outline-none focus:border-red-500 text-black mb-6'
               onChange={this.handleChange}
               value={this.state.password}
             />
           </fieldset>
-          <input
-            className=''
+          <button
+            className='bg-transparent hover:bg-red-500 text-white hover:text-white py-2 px-6 border border-white hover:border-transparent uppercase mt-10'
             type='submit'
-            value='Log In'
-          />
+            valu
+          >
+            Login
+          </button>
         </form>
       );
     }
