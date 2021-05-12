@@ -1,10 +1,16 @@
-import React from 'react';
+import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { checkAuth } from "../actions/auth";
 import Logout from "./auth/Logout";
 import { Link } from 'react-router-dom';
 
-const Dropdown = ({isOpen, toggle}) => {
+const Dropdown = ({isOpen, toggle, authChecked, loggedIn, currentUser, dispatchCheckAuth}) => {
+    useEffect(
+        () => {
+            dispatchCheckAuth()
+        }
+    );
+    
     return ( 
         <div className={isOpen ? 'grid grid-rows-3 text-center items-center text-white bg-gray-500 bg-opacity-50' : 'hidden'} onClick={toggle}>
             <Link to='/' className='p-4'>Home</Link>
