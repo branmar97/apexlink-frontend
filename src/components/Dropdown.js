@@ -17,5 +17,11 @@ const Dropdown = ({isOpen, toggle}) => {
 const mapStateToProps = ({ auth: { authChecked, loggedIn, currentUser } }) => {
     return { authChecked, loggedIn, currentUser };
 };
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+      dispatchCheckAuth: () => dispatch(checkAuth())
+    };
+};
  
-export default connect(mapStateToProps)(Dropdown);
+export default connect(mapStateToProps, mapDispatchToProps)(Dropdown);
