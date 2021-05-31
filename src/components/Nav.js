@@ -8,7 +8,7 @@ import { checkAuth } from "../actions/auth";
 const Nav = ({ authChecked, loggedIn, currentUser, dispatchCheckAuth, toggle}) => {
     useEffect(() => {
         dispatchCheckAuth();
-    }, [])
+    }, [currentUser])
 
     const renderAuthLinks = () => {
         if (authChecked) {
