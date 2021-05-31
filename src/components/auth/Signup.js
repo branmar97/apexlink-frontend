@@ -1,40 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { signupUser } from "../../actions/auth";
 
-class Signup extends React.Component {
-    state = { 
-        email: '',
-        password: '',
-        gamertag: '',
-        platform: '',
-        region: '',
-        errors: {status: {message: ''}}
+const Signup = ({ dispatchSignupUser, history }) => {
+    const [formData, setFormData] = useState(
+        {
+            email: "",
+            password: "",
+            gamertag: "",
+            platform: "",
+            region: "",
+            errors: {status: {message: ""}}
+        }
+    )
+
+    const handleChange = event => {
+        setFormData({
+            ...formData,
+            [event.target.name]: event.target.value
+        })
     }
 
-    handleChange = (event) => {
-        this.setState({
-            [event.target.name]: event.target.value
-        });
-    };
-    
-    handleSubmit = (event) => {
-        event.preventDefault();
-        const { email, password, gamertag, platform, region } = this.state;
-        this.props
-            .dispatchSignupUser({ email, password, gamertag, platform, region })
-            .then(() => this.props.history.push("/"))
-            .catch((errors) => this.setState({ errors }));
-    };
+    const handleSubmit = event => {
+        event.preventDefault()
+        const { email, password, gamertag, platform, region } = formData;
+        dispatchSignupUser({ email, password, gamertag, platform, region })
+        .then(() => history.push("/"))
+        .catch((errors) => setFormData({ errors }));
+    }
 
-    render() { 
-        return ( 
+    return ( 
         <form
-            onSubmit={this.handleSubmit}
+            onSubmit={handleSubmit}
             className='my-32 px-4 max-w-6xl mx-auto text-white'
         >
             <h1 className='font-bold text-2xl uppercase mb-6 text-white'>Sign Up</h1>
-            <p className=''>{this.state.errors.status.message}</p>
+            <p className=''>{formData.errors.status.message}</p>
 
             <fieldset>
             <label className='' htmlFor='email'>
@@ -45,8 +46,8 @@ class Signup extends React.Component {
                 name='email'
                 id='email'
                 className='border border-gray-400 block py-2 px-4 w-full focus:outline-none focus:border-red-500 text-black mb-6'
-                onChange={this.handleChange}
-                value={this.state.email}
+                onChange={handleChange}
+                value={formData.email}
             />
             </fieldset>
 
@@ -59,8 +60,8 @@ class Signup extends React.Component {
                 name='password'
                 id='password'
                 className='border border-gray-400 block py-2 px-4 w-full focus:outline-none focus:border-red-500 text-black mb-6'
-                onChange={this.handleChange}
-                value={this.state.password}
+                onChange={handleChange}
+                value={formData.password}
             />
             </fieldset>
 
@@ -73,8 +74,8 @@ class Signup extends React.Component {
                 name='gamertag'
                 id='gamertag'
                 className='border border-gray-400 block py-2 px-4 w-full focus:outline-none focus:border-red-500 text-black mb-6'
-                onChange={this.handleChange}
-                value={this.state.gamertag}
+                onChange={handleChange}
+                value={formData.gamertag}
             />
             </fieldset>
 
@@ -86,7 +87,7 @@ class Signup extends React.Component {
                 className='border border-gray-400 block py-2 px-4 w-full focus:outline-none focus:border-red-500 text-black mb-6'
                 name='platform'
                 defaultValue=''
-                onChange={this.handleChange}
+                onChange={handleChange}
                 >
                     <option disabled value=''> 
                         Select an Option 
@@ -105,7 +106,7 @@ class Signup extends React.Component {
                     className='border border-gray-400 block py-2 px-4 w-full focus:outline-none focus:border-red-500 text-black mb-6'
                     name='region'
                     defaultValue=''
-                    onChange={this.handleChange}
+                    onChange={handleChange}
                     >
                         <option disabled value=''> 
                             Select an Option 
@@ -125,7 +126,6 @@ class Signup extends React.Component {
             </button>
         </form>
         );
-    }
 }
 
 const mapDispatchToProps = (dispatch) => {

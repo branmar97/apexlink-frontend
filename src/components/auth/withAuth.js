@@ -1,30 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { checkAuth } from "../../actions/auth";
 import LoadingSpinner from "../LoadingSpinner";
 import Login from "./Login";
 
 function withAuth(WrappedComponent) {
-  class Wrapper extends React.Component {
-    componentDidMount() {
-      this.props.dispatchCheckAuth();
-    }
+  const Wrapper = ({ dispatchCheckAuth, authChecked, loggedIn, props }) => {
+    useEffect(() => {
+      dispatchCheckAuth()
+    }, [])
 
-    render() {
-      if (!this.props.authChecked) {
-        return <LoadingSpinner />;
-      } else if (!this.props.loggedIn) {
-        const errorMessage = 'You need to login to view this page.'
-        return (
-          <>
-            <Login errorMessage={errorMessage} />
-          </>
-        );
-      } else {
-        return <WrappedComponent {...this.props} />;
-      }
+    if (!authChecked) {
+      return <LoadingSpinner />;
+    } else if (!loggedIn) {
+      const errorMessage = 'You need to login to view this page.'
+      return (
+        <>
+          <Login errorMessage={errorMessage} />
+        </>
+      );
+    } else {
+      return <WrappedComponent {...props} />;
     }
   }
+
 
   const mapStateToProps = ({
     auth: { authChecked, loggedIn, currentUser }
