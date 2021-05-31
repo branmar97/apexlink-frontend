@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import LobbyCard from './LobbyCard';
 import { connect } from 'react-redux';
 import { fetchRequests } from '../actions/requestActions';
