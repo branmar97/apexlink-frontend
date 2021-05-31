@@ -5,7 +5,11 @@ import LoadingSpinner from "../LoadingSpinner";
 import Login from "./Login";
 
 function withAuth(WrappedComponent) {
-  const Wrapper = ({ dispatchCheckAuth, authChecked, loggedIn, props }) => {
+  const Wrapper = (props) => {
+    const dispatchCheckAuth = props.dispatchCheckAuth
+    const authChecked = props.authChecked
+    const loggedIn = props.loggedIn
+
     useEffect(() => {
       dispatchCheckAuth()
     }, [])
