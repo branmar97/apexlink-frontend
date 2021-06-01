@@ -1,4 +1,4 @@
-const manageLobbies = (state = { list: [], current: {}, loading: false }, action) => {
+const manageLobbies = (state = { list: [], current: {}, loading: true }, action) => {
     switch(action.type) {
         case 'LOADING_LOBBIES':
             return {
