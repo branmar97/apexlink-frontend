@@ -12,7 +12,7 @@ const Lobbies = ({ lobbies, requests }) => {
         return lobbies.map(lobby => <LobbyCard 
             key={lobby.id}
             id={lobby.id}
-            gamertag={lobby.gamertag}
+            gamertag={lobby.user.gamertag}
             region={lobby.region}
             platform={lobby.platform}
             gamemode={lobby.gamemode}
