@@ -10,9 +10,9 @@ const Lobby = ({ lobby, getLobby, match, loading }) => {
     useEffect(() => {
         getLobby(match.params.id);
     }, [])
-    console.log(lobby.data)
+
     const micRequired = () => {
-        if (lobby.data.mic_required) {
+        if (lobby.mic_required) {
             return (
                 <svg className="w-6 h-6 ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.93A7.001 7.001 0 0017 8a1 1 0 10-2 0A5 5 0 015 8a1 1 0 00-2 0 7.001 7.001 0 006 6.93V17H6a1 1 0 100 2h8a1 1 0 100-2h-3v-2.07z" clipRule="evenodd" /></svg>
             )
@@ -22,11 +22,11 @@ const Lobby = ({ lobby, getLobby, match, loading }) => {
     }
 
     const platformType = () => {
-        if (lobby.data.platform === "Xbox") {
+        if (lobby.platform === "Xbox") {
             return (
                 <img alt='Xbox Icon' src="https://img.icons8.com/fluent/24/000000/xbox.png"/>
             )
-        } else if (lobby.data.platform === "Playstation") {
+        } else if (lobby.platform === "Playstation") {
             return (
                 <img alt='Playstation Icon' src="https://img.icons8.com/color/24/000000/play-station.png"/>
             )
@@ -37,7 +37,7 @@ const Lobby = ({ lobby, getLobby, match, loading }) => {
         }
     }
     
-    if (loading || !lobby.data) {
+    if (loading || !lobby) {
         return (
             <div className='bg-transparent h-screen max-w-6xl justify-center flex flex-col mx-auto
             items-center content-center font-heebo'>
@@ -57,20 +57,20 @@ const Lobby = ({ lobby, getLobby, match, loading }) => {
                 </Link>
     
                 <div className='shadow-2xl bg-gray-500 bg-opacity-50 text-gray-200 p-10'>  
-                    <p className="text-sm mb-6 mt-2 float-right">Lobby #{lobby.data.id}</p>
+                    <p className="text-sm mb-6 mt-2 float-right">Lobby #{lobby.id}</p>
                     <div className='flex'>
                         <h2 className="font-semibold text-4xl tracking-wider uppercase mr-4">{lobby.user.gamertag}</h2>
                         <img alt='Host Icon' src="https://img.icons8.com/android/40/ffffff/crown.png"/>
                     </div>
-                    <p className="text-sm mt-4">{lobby.data.gamemode} • {<TimeAgo datetime={lobby.data.created_at}
+                    <p className="text-sm mt-4">{lobby.gamemode} • {<TimeAgo datetime={lobby.created_at}
                                                                                         locale='en'
                                                                                                 />}</p>
                     <div className="flex mt-2">{platformType()}{micRequired()}</div>
-                    <p className='text-sm mt-2'>{lobby.data.region} • {lobby.data.skill_level}</p>
-                    <p className="text-sm mt-4 text-white">{lobby.data.description}</p>
+                    <p className='text-sm mt-2'>{lobby.region} • {lobby.skill_level}</p>
+                    <p className="text-sm mt-4 text-white">{lobby.description}</p>
                 </div>
                 <div>
-                    <RequestsContainer lobbyId={lobby.data.id} />
+                    <RequestsContainer lobbyId={lobby.id} />
                 </div>
             </div>
         )
