@@ -20,9 +20,14 @@ export const addRequest = (data) => {
       },
       body: JSON.stringify({request: data}),
     })
-    .then(response => response.json())
-    .then(data => {
-      dispatch({ type: 'ADD_REQUEST', request: data })
+    .then(response => {
+      if (response.ok) {
+        return response.json().then(data => dispatch({ type: 'ADD_REQUEST', request: data }))
+      } else {
+        return response.json().then((errors) => {
+        return Promise.reject(errors);
+      }
+      )}
     })
   }
 }
