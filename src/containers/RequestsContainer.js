@@ -1,10 +1,10 @@
-import React, { Component, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Requests from '../components/Requests';
 import RequestsForm from '../components/RequestsForm';
 import { connect } from 'react-redux';
-import { fetchRequests, addRequest } from '../actions/requestActions';
+import { fetchRequests } from '../actions/requestActions';
 
-const RequestsContainer = ({ fetchRequests, addRequest, requests, lobbyId }) => {
+const RequestsContainer = ({ fetchRequests, requests, lobbyId }) => {
     useEffect(() => {
         fetchRequests()
     }, [])
@@ -13,7 +13,6 @@ const RequestsContainer = ({ fetchRequests, addRequest, requests, lobbyId }) => 
         <div className='bg-transparent 
         font-heebo text-white my-32'>
             <RequestsForm 
-                addRequest={addRequest}
                 lobbyId={lobbyId}
             />
             <Requests
@@ -33,8 +32,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchRequests: () => dispatch(fetchRequests()),
-        addRequest: request => dispatch(addRequest(request))
+        fetchRequests: () => dispatch(fetchRequests())
     }
 }
  

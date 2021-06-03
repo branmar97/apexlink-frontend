@@ -1,4 +1,4 @@
-const manageRequests = (state = { list: [], loading: false }, action) => {
+const manageRequests = (state = { list: [], loading: false, error: false }, action) => {
     switch(action.type) {
         case 'LOADING_REQUESTS':
             return {
@@ -10,12 +10,19 @@ const manageRequests = (state = { list: [], loading: false }, action) => {
             return {
                 ...state,
                 list: action.requests,
-                loading: false
+                loading: false,
+                error: false
             }
         case 'ADD_REQUEST':
             return {
                 ...state,
                 list: [ ...state.list, action.request]
+            }
+        case 'BAD_REQUEST':
+            return {
+                ...state,
+                list: [...state.list],
+                error: true
             }
         default:
             return state;
