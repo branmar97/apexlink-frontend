@@ -45,7 +45,7 @@ const Lobby = ({ lobby, getLobby, match, loading }) => {
                 <h1 className='text-xl sm:text-2xl text-white text-center uppercase mb-4'>Don't worry, this shouldn't take long</h1>
             </div>
         )
-    } else {
+    } else if (lobby) {
         return (
             <div className='bg-transparent font-heebo text-white my-32 px-4 max-w-6xl mx-auto'>
                 <Link to='/lobbies'>
@@ -74,6 +74,8 @@ const Lobby = ({ lobby, getLobby, match, loading }) => {
                 </div>
             </div>
         )
+    } else {
+        return null
     }
 
 }
