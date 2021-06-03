@@ -35,7 +35,7 @@ const Login = ({ dispatchLoginUser, history }) => {
       className='my-32 px-4 max-w-6xl mx-auto text-white'
     >
       <h1 className='font-bold text-2xl uppercase mb-6 text-white'>Login</h1>
-      <p className="">{formData.error && "Invalid email or password"}</p>
+      <p className="mb-4 text-red-500">{formData.error && "Invalid email or password"}</p>
       <fieldset>
         <label className='' htmlFor='email'>
           Email
