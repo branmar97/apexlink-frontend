@@ -8,7 +8,7 @@ const Request = ({ request }) => {
             <p className="text-sm mt-1 float float-right">{<TimeAgo datetime={request.created_at}
                                                                                         locale='en'
                                                                                                 />}</p>
-            <h4 className="float font-semibold text-xl tracking-wider uppercase">{request.gamertag}</h4>
+            <h4 className="float font-semibold text-xl tracking-wider uppercase">{request.user.gamertag}</h4>
             <p className="text-sm mt-4 text-white">{request.description}</p>
         </div>
      );
