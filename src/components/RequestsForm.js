@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux'
-import { addLobby } from '../actions/lobbyActions';
+import { addRequest } from '../actions/requestActions';
 
-const RequestsForm = ({ currentUser, lobbyId, addRequest}) => {
-    const [input, setInput] = useState("")
+const RequestsForm = ({ currentUser, error, lobbyId, dispatchAddRequest}) => {
+    const [formData, setFormData] = useState(
+        {
+            input: "",
+        }
+    )
 
     const handleOnChange = event => {
-        setInput(event.target.value)
+        setFormData({
+            ...formData,
+            input: event.target.value
+        })
     }
 
     const handleOnSubmit = event => {
@@ -14,11 +21,24 @@ const RequestsForm = ({ currentUser, lobbyId, addRequest}) => {
         const request = {
             user_id: currentUser.id,
             gamertag: currentUser.gamertag,
-            description: input,
+            description: formData.input,
             lobby_id: lobbyId
         }
-        addRequest(request)
-        setInput("")
+        dispatchAddRequest(request)
+        setFormData({
+            ...formData,
+            input: ""
+        })
+    }
+
+    const handleError = () => {
+        if (error) {
+            return (
+                <p className="mb-4 text-red-500">Only one request permitted per lobby</p>
+            )
+        } else {
+            return null
+        }
     }
 
     return ( 
@@ -26,13 +46,15 @@ const RequestsForm = ({ currentUser, lobbyId, addRequest}) => {
             <form className='mx-auto' onSubmit={handleOnSubmit}>
                 <h2 className='font-bold text-2xl uppercase mb-6'>Request to Join</h2>
 
+                {handleError()}
+
                 <label htmlFor='descriptionText'>Description</label>
 
                 <textarea 
                     className='border border-gray-400 block py-6 px-4 w-full focus:outline-none focus:border-red-500 text-black mb-6'
                     name='description'
                     placeholder='Some details about your request'
-                    value={input}
+                    value={formData.input}
                     onChange={handleOnChange}
                 />
 
@@ -42,8 +64,14 @@ const RequestsForm = ({ currentUser, lobbyId, addRequest}) => {
      );
 }
 
-const mapStateToProps = ({ auth: { currentUser } }) => {
-    return { currentUser };
+const mapStateToProps = ({ auth: { currentUser }, requests: { error } }) => {
+    return { currentUser, error };
 };
+
+const mapDispatchToProps = dispatch => {
+    return {
+        dispatchAddRequest: request => dispatch(addRequest(request))
+    }
+}
  
-export default connect(mapStateToProps)(RequestsForm);
+export default connect(mapStateToProps, mapDispatchToProps)(RequestsForm);
