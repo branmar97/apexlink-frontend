@@ -1,6 +1,6 @@
 export const fetchRequests = () => {
     return (dispatch) => {
-        dispatch({ type: 'LOADING_REQUESTS'})
+        dispatch({ type: 'LOADING_REQUESTS' })
         fetch('http://localhost:3001/requests')
         .then(response => {
           return response.json()
@@ -20,14 +20,19 @@ export const addRequest = (data) => {
       },
       body: JSON.stringify({request: data}),
     })
-    .then(response => {
-      if (response.ok) {
-        return response.json().then(data => dispatch({ type: 'ADD_REQUEST', request: data }))
+    .then(res => {
+      if (res.ok) {
+        return res
+          .json()
+          .then(data =>
+            dispatch({ type: 'ADD_REQUEST', request: data })
+          );
       } else {
-        return response.json().then((errors) => {
-        return Promise.reject(errors);
+        return res.json().then((errors) => {
+          dispatch({ type: 'BAD_REQUEST' })
+          return Promise.reject(errors);
+        });
       }
-      )}
     })
   }
 }
