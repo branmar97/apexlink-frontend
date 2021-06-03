@@ -1,13 +1,8 @@
 import React, { useEffect } from 'react';
 import LobbyCard from './LobbyCard';
-import { connect } from 'react-redux';
-import { fetchRequests } from '../actions/requestActions';
 
-const Lobbies = ({ lobbies, requests }) => {
-    useEffect(() => {
-        fetchRequests();
-    }, [])
 
+const Lobbies = ({ lobbies }) => {
     const listLobbies = () => {
         return lobbies.map(lobby => <LobbyCard 
             key={lobby.id}
@@ -16,11 +11,11 @@ const Lobbies = ({ lobbies, requests }) => {
             region={lobby.region}
             platform={lobby.platform}
             gamemode={lobby.gamemode}
-            description={lobby.description}
+            shortDesc={lobby.short_desc}
             mic={lobby.mic_required}
             skillLevel={lobby.skill_level}
             createdAt={lobby.created_at}
-            requests={requests}
+            requests={lobby.requests}
         />)
     }
 
@@ -33,18 +28,6 @@ const Lobbies = ({ lobbies, requests }) => {
     )
 }
 
-const mapStateToProps = state => {
-    return {
-        requests: state.requests.list,
-        loading: state.requests.loading
-    }
-}
-
-const mapDispatchToProps = dispatch => {
-    return {
-        fetchRequests: () => dispatch(fetchRequests())
-    }
-}
 
  
-export default connect(mapStateToProps, mapDispatchToProps)(Lobbies);
+export default Lobbies;
