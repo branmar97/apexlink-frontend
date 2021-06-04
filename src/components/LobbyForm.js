@@ -10,7 +10,7 @@ const LobbyForm = ({ addLobby, currentUser }) => {
             micBool: false,
             hidden: true,
             error: false,
-            errorMessage: ""
+            errorMessage: {}
         }
     )
 
@@ -44,11 +44,11 @@ const LobbyForm = ({ addLobby, currentUser }) => {
     }
 
     const handleErrorMessage = () => {
-        if (formData.errorMessage.description) {
+        if (formData.errorMessage && Object.keys(formData.errorMessage).length > 0 && formData.errorMessage.constructor === Object) {
             return (
-                <div>
-                    <p className="mb-4 text-red-500">{formData.errorMessage.description[0]}</p>
-                </div>
+                Object.keys(formData.errorMessage).map(key => {
+                    return <p className="mb-4 text-red-500">{formData.errorMessage[key][0]}</p>
+                })
             )
         } else {
             return null
@@ -84,7 +84,7 @@ const LobbyForm = ({ addLobby, currentUser }) => {
             <button className='bg-transparent hover:bg-red-500 text-white hover:text-white py-2 px-6 border border-white hover:border-transparent uppercase float-right' onClick={handleShowForm}>{formData.hidden ? 'Create Lobby' : 'Hide Form'}</button>
             <form className={formData.hidden ? 'hidden' : ''} onSubmit={handleOnSubmit}>
                 <h1 className='font-bold text-2xl uppercase mb-6'>Create Lobby</h1>
-
+                {formData.error && handleErrorMessage()}
                 <label htmlFor='gamemodeText'>Gamemode</label>
 
                 <select 
@@ -127,7 +127,7 @@ const LobbyForm = ({ addLobby, currentUser }) => {
                     onClick={handleCheckbox}
                     />
                 </div>
-                {formData.error && handleErrorMessage()}
+
                 <label htmlFor='descriptionText'>Description</label>
 
                 <textarea 
