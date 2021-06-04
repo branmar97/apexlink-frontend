@@ -29,10 +29,18 @@ const LobbyForm = ({ addLobby, currentUser }) => {
             mic_required: formData.micBool,
             skill_level: formData.skillText
         }
-        addLobby(lobby);
-        event.target.reset()
-
-        setFormData({...formData, descriptionText: "", micBool: false })
+        addLobby(lobby)
+        .then(() => {
+            setFormData({...formData, descriptionText: "", micBool: false })
+            event.target.reset()
+        })
+        .catch((error) => {
+            setFormData({
+                ...formData,
+                error: true,
+                errorMessage: error
+            })
+        })
     }
 
     const handleCheckbox = () => {
