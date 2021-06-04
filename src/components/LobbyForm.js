@@ -9,6 +9,8 @@ const LobbyForm = ({ addLobby, currentUser }) => {
             skillText: "",
             micBool: false,
             hidden: true,
+            error: false,
+            errorMessage: ""
         }
     )
 
@@ -27,10 +29,30 @@ const LobbyForm = ({ addLobby, currentUser }) => {
             mic_required: formData.micBool,
             skill_level: formData.skillText
         }
-        addLobby(lobby);
-        event.target.reset()
+        addLobby(lobby)
+        .then(() => {
+            setFormData({...formData, descriptionText: "", micBool: false })
+            event.target.reset()
+        })
+        .catch((error) => {
+            setFormData({
+                ...formData,
+                error: true,
+                errorMessage: error
+            })
+        })
+    }
 
-        setFormData({...formData, descriptionText: "", micBool: false })
+    const handleErrorMessage = () => {
+        if (formData.errorMessage.description) {
+            return (
+                <div>
+                    <p className="mb-4 text-red-500">{formData.errorMessage.description[0]}</p>
+                </div>
+            )
+        } else {
+            return null
+        }
     }
 
     const handleCheckbox = () => {
@@ -105,7 +127,7 @@ const LobbyForm = ({ addLobby, currentUser }) => {
                     onClick={handleCheckbox}
                     />
                 </div>
-
+                {formData.error && handleErrorMessage()}
                 <label htmlFor='descriptionText'>Description</label>
 
                 <textarea 

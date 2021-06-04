@@ -26,16 +26,25 @@ export const getLobby = (id) => {
 
 export const addLobby = (data) => {
   return dispatch => {
-    fetch('http://localhost:3001/lobbies', {
+    return fetch('http://localhost:3001/lobbies', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
       },
       body: JSON.stringify({lobby: data}),
     })
-    .then(response => response.json())
-    .then(data => {
-      dispatch({ type: 'ADD_LOBBY', lobby: data })
+    .then(res => {
+      if (res.ok) {
+        return res
+          .json()
+          .then(data =>
+            dispatch({ type: 'ADD_LOBBY', lobby: data })
+          );
+      } else {
+        return res.json().then((errors) => {
+          return Promise.reject(errors);
+        });
+      }
     })
   }
 }
