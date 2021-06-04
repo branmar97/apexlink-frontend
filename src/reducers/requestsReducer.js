@@ -18,12 +18,6 @@ const manageRequests = (state = { list: [], loading: false, error: false }, acti
                 ...state,
                 list: [ ...state.list, action.request]
             }
-        case 'BAD_REQUEST':
-            return {
-                ...state,
-                list: [...state.list],
-                error: true
-            }
         default:
             return state;
     }
