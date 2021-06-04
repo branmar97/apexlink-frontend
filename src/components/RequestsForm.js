@@ -41,20 +41,11 @@ const RequestsForm = ({ currentUser, lobbyId, dispatchAddRequest}) => {
     }
     
     const handleErrorMessage = () => {
-        if (formData.errorMessage.user_id && formData.errorMessage.description) {
+        if (formData.errorMessage && Object.keys(formData.errorMessage).length > 0 && formData.errorMessage.constructor === Object) {
             return (
-                <div>
-                    <p className="mb-4 text-red-500">{formData.errorMessage.user_id[0]}</p>
-                    <p className="mb-4 text-red-500">{formData.errorMessage.description[0]}</p>
-                </div>
-            )
-        } else if (formData.errorMessage.user_id) {
-            return (
-                <p className="mb-4 text-red-500">{formData.errorMessage.user_id[0]}</p>
-            )
-        } else if (formData.errorMessage.description) {
-            return (
-                <p className="mb-4 text-red-500">{formData.errorMessage.description}</p>
+                Object.keys(formData.errorMessage).map(key => {
+                    return <p className="mb-4 text-red-500">{formData.errorMessage[key][0]}</p>
+                })
             )
         } else {
             return null
