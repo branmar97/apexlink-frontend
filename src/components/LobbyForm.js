@@ -20,7 +20,6 @@ const LobbyForm = ({ addLobby, currentUser }) => {
         event.preventDefault()
         const lobby = {
             user_id: currentUser.id,
-            gamertag: currentUser.gamertag,
             platform: currentUser.platform,
             region: currentUser.region,
             gamemode: formData.gamemodeText,
