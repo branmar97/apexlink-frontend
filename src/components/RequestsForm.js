@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux'
 import { addRequest } from '../actions/requestActions';
 
-const RequestsForm = ({ currentUser, error, lobbyId, dispatchAddRequest}) => {
+const RequestsForm = ({ currentUser, lobbyId, dispatchAddRequest}) => {
     const [formData, setFormData] = useState(
         {
             input: "",
+            error: false,
+            errorMessage: ""
         }
     )
 
@@ -25,16 +27,34 @@ const RequestsForm = ({ currentUser, error, lobbyId, dispatchAddRequest}) => {
             lobby_id: lobbyId
         }
         dispatchAddRequest(request)
-        setFormData({
+        .then(() => setFormData({
             ...formData,
             input: ""
+        }))
+        .catch((error) => {
+            setFormData({
+                ...formData,
+                error: true,
+                errorMessage: error
+            })
         })
     }
-
-    const handleError = () => {
-        if (error) {
+    
+    const handleErrorMessage = () => {
+        if (formData.errorMessage.user_id && formData.errorMessage.description) {
             return (
-                <p className="mb-4 text-red-500">Only one request permitted per lobby</p>
+                <div>
+                    <p className="mb-4 text-red-500">{formData.errorMessage.user_id[0]}</p>
+                    <p className="mb-4 text-red-500">{formData.errorMessage.description[0]}</p>
+                </div>
+            )
+        } else if (formData.errorMessage.user_id) {
+            return (
+                <p className="mb-4 text-red-500">{formData.errorMessage.user_id[0]}</p>
+            )
+        } else if (formData.errorMessage.description) {
+            return (
+                <p className="mb-4 text-red-500">{formData.errorMessage.description}</p>
             )
         } else {
             return null
@@ -45,10 +65,7 @@ const RequestsForm = ({ currentUser, error, lobbyId, dispatchAddRequest}) => {
         <div>
             <form className='mx-auto' onSubmit={handleOnSubmit}>
                 <h2 className='font-bold text-2xl uppercase mb-6'>Request to Join</h2>
-
-                {handleError()}
-
-                <label htmlFor='descriptionText'>Description</label>
+                {formData.error && handleErrorMessage()}
 
                 <textarea 
                     className='border border-gray-400 block py-6 px-4 w-full focus:outline-none focus:border-red-500 text-black mb-6'
