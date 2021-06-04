@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux'
 import { addRequest } from '../actions/requestActions';
 
-const RequestsForm = ({ currentUser, error, lobbyId, dispatchAddRequest}) => {
+const RequestsForm = ({ currentUser, lobbyId, dispatchAddRequest}) => {
     const [formData, setFormData] = useState(
         {
             input: "",
+            error: false
         }
     )
 
@@ -31,22 +32,10 @@ const RequestsForm = ({ currentUser, error, lobbyId, dispatchAddRequest}) => {
         })
     }
 
-    const handleError = () => {
-        if (error) {
-            return (
-                <p className="mb-4 text-red-500">Only one request permitted per lobby</p>
-            )
-        } else {
-            return null
-        }
-    }
-
     return ( 
         <div>
             <form className='mx-auto' onSubmit={handleOnSubmit}>
                 <h2 className='font-bold text-2xl uppercase mb-6'>Request to Join</h2>
-
-                {handleError()}
 
                 <label htmlFor='descriptionText'>Description</label>
 
