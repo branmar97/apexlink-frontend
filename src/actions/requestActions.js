@@ -13,7 +13,7 @@ export const fetchRequests = () => {
 
 export const addRequest = (data) => {
   return dispatch => {
-    fetch('http://localhost:3001/requests', {
+    return fetch('http://localhost:3001/requests', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -29,7 +29,6 @@ export const addRequest = (data) => {
           );
       } else {
         return res.json().then((errors) => {
-          dispatch({ type: 'BAD_REQUEST' })
           return Promise.reject(errors);
         });
       }
