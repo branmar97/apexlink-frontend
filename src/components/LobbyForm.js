@@ -43,6 +43,18 @@ const LobbyForm = ({ addLobby, currentUser }) => {
         })
     }
 
+    const handleErrorMessage = () => {
+        if (formData.errorMessage.description) {
+            return (
+                <div>
+                    <p className="mb-4 text-red-500">{formData.errorMessage.description[0]}</p>
+                </div>
+            )
+        } else {
+            return null
+        }
+    }
+
     const handleCheckbox = () => {
         const micState = formData.micBool;
         
@@ -115,7 +127,7 @@ const LobbyForm = ({ addLobby, currentUser }) => {
                     onClick={handleCheckbox}
                     />
                 </div>
-
+                {formData.error && handleErrorMessage()}
                 <label htmlFor='descriptionText'>Description</label>
 
                 <textarea 
