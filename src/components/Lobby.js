@@ -3,7 +3,8 @@ import RequestsContainer from '../containers/RequestsContainer';
 import ReactLoading from 'react-loading';
 import { connect } from 'react-redux';
 import { getLobby } from '../actions/lobbyActions';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import isObjNotEmpty from '../helpers';
 import TimeAgo from 'timeago-react';
 
 const Lobby = ({ lobby, getLobby, match, loading }) => {
@@ -37,7 +38,7 @@ const Lobby = ({ lobby, getLobby, match, loading }) => {
         }
     }
     
-    if (loading || !lobby) {
+    if (loading || !isObjNotEmpty(lobby)) {
         return (
             <div className='bg-transparent h-screen max-w-6xl justify-center flex flex-col mx-auto
             items-center content-center font-heebo'>
