@@ -9,6 +9,8 @@ const LobbyForm = ({ addLobby, currentUser }) => {
             skillText: "",
             micBool: false,
             hidden: true,
+            error: false,
+            errorMessage: ""
         }
     )
 
