@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import Requests from '../components/Requests';
-import RequestsForm from '../components/RequestsForm';
+import RequestsForm from './RequestsFormContainer';
 import { connect } from 'react-redux';
 import { fetchRequests } from '../actions/requestActions';
 
