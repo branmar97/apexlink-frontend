@@ -581,7 +581,7 @@ video {
 
   font-family: 'Heebo';
 
-  src: local('Heebo'), url(../../../src/fonts/Heebo.ttf) format('tff');
+  src: local('Heebo'), url('https://fonts.googleapis.com/css2?family=Heebo&display=swap') format('tff');
 }
 
 .space-y-0 > :not([hidden]) ~ :not([hidden]) {
