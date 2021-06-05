@@ -40,7 +40,6 @@ const Dropdown = ({isOpen, toggle, authChecked, loggedIn, currentUser, dispatchC
             {/* Displays login/signup if logged out OR gamertag/logout if logged in */}
             {renderAuthLinks()}
             <Link to='/' className='p-4'>Home</Link>
-            <Link to='/about' className='p-4'>About</Link>
             <Link to='/lobbies' className='p-4'>Browse</Link>
         </div>
      );
