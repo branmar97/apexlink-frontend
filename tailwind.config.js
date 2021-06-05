@@ -8,7 +8,7 @@ module.exports = {
       },
       fontFamily: {
         'duke': ["Duke"],
-        'heebo': ["Heebo", 'sans-serif']
+        'heebo': "url('https://fonts.googleapis.com/css2?family=Heebo&display=swap')"
       }
     },
   },
