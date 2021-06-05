@@ -3,7 +3,6 @@ import './App.css';
 import Nav from './components/Nav';
 import Dropdown from './components/Dropdown';
 import Home from './components/Home';
-import About from './components/About';
 import Lobby from './components/Lobby'
 import Signup from './components/auth/Signup';
 import Login from './components/auth/Login';
@@ -21,11 +20,10 @@ function App() {
 
   return (
     <Router>
-        <div className='bg-wraith bg-center bg-top bg-cover bg-no-repeat bg-fixed pb-72'>
+        <div className='bg-wraith bg-center bg-cover bg-no-repeat bg-fixed pb-72'>
               <Nav toggle={toggle} />
               <Dropdown isOpen={isOpen} toggle={toggle} />
               <Route exact path="/" component={Home} />
-              <Route exact path='/about' component={About} />
               <Route exact path="/lobbies" component={withAuth(LobbiesContainer)} />
               <Route path="/lobbies/:id" component={withAuth(Lobby)} />
               <Route exact path='/signup' component={Signup} />
