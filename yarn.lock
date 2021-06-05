@@ -1194,6 +1194,11 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@fontsource/heebo@^4.4.5":
+  version "4.4.5"
+  resolved "https://registry.yarnpkg.com/@fontsource/heebo/-/heebo-4.4.5.tgz#ebad96afd2c12e120244ed7166d5c3a405116c7b"
+  integrity sha512-ETCiRQTNhkStqCOkQyLd3EE+jxdC2WkKFyFMpcfzTkcyUeHdDe4WNyuGn7k3g3bsskSTzY47Tdc83ruRir6LtA==
+
 "@fullhuman/postcss-purgecss@^3.1.3":
   version "3.1.3"
   resolved "https://registry.npmjs.org/@fullhuman/postcss-purgecss/-/postcss-purgecss-3.1.3.tgz"
