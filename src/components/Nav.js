@@ -53,7 +53,6 @@ const Nav = ({ authChecked, loggedIn, currentUser, dispatchCheckAuth, toggle}) =
 
             <div className='pr-8 mt-8 mr-6 lg:block hidden font-heebo uppercase'>
                 <Link to='/' className='ml-4 mr-4 hover:text-red-500'>Home</Link>
-                <Link to='/about' className='ml-4 mr-4 hover:text-red-500'>About</Link>
                 <Link to='/lobbies' className='ml-4 mr-4  hover:text-red-500'>Browse</Link>
                 {renderAuthLinks()}
             </div>
