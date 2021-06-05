@@ -8,7 +8,7 @@ module.exports = {
       },
       fontFamily: {
         'duke': ["Duke"],
-        'heebo': ["Heebo"]
+        'heebo': ["Heebo", 'sans-serif']
       }
     },
   },
