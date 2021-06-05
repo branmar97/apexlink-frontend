@@ -1,4 +1,4 @@
-import { AUTHENTICATED, NOT_AUTHENTICATED } from './index';
+import { AUTHENTICATED, NOT_AUTHENTICATED, root } from './index';
 
 const setToken = (token) => {
   localStorage.setItem("token", token);
@@ -16,7 +16,7 @@ const getToken = () => {
 
 export const signupUser = (credentials) => {
   return (dispatch) => {
-    return fetch("http://localhost:3001/signup", {
+    return fetch(`${root}/signup`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -43,7 +43,7 @@ export const signupUser = (credentials) => {
 
   export const loginUser = (credentials) => {
     return (dispatch) => {
-      return fetch("http://localhost:3001/login", {
+      return fetch(`${root}/login`, {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -70,7 +70,7 @@ export const signupUser = (credentials) => {
 
 export const logoutUser = () => {
   return (dispatch) => {
-    return fetch("http://localhost:3001/logout", {
+    return fetch(`${root}/logout`, {
       method: "DELETE",
       headers: {
         Accept: "application/json",
@@ -92,7 +92,7 @@ export const logoutUser = () => {
 
 export const checkAuth = () => {
   return (dispatch) => {
-    return fetch("http://localhost:3001/current_user", {
+    return fetch(`${root}/current_user`, {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",

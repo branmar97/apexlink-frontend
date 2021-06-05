@@ -1,7 +1,9 @@
+import { root } from './index';
+
 export const fetchRequests = (lobbyId) => {
     return (dispatch) => {
         dispatch({ type: 'LOADING_REQUESTS' })
-        fetch(`http://localhost:3001/lobbies/${lobbyId}/requests`)
+        fetch(`${root}/lobbies/${lobbyId}/requests`)
         .then(response => {
           return response.json()
         })
@@ -13,7 +15,7 @@ export const fetchRequests = (lobbyId) => {
 
 export const addRequest = (data) => {
   return dispatch => {
-    return fetch('http://localhost:3001/requests', {
+    return fetch(`${root}/requests`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

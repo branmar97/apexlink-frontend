@@ -1,7 +1,9 @@
+import { root } from './index';
+
 export const fetchLobbies = () => {
     return dispatch => {
         dispatch({ type: 'LOADING_LOBBIES'})
-        fetch('http://localhost:3001/lobbies')
+        fetch(`${root}/lobbies`)
         .then(response => {
           return response.json()
         })
@@ -14,7 +16,7 @@ export const fetchLobbies = () => {
 export const getLobby = (id) => {
   return dispatch => {
     dispatch({ type: 'LOADING_LOBBY'})
-    fetch(`http://localhost:3001/lobbies/${id}`)
+    fetch(`${root}/lobbies/${id}`)
     .then(response => {
       return response.json()
     })
@@ -26,7 +28,7 @@ export const getLobby = (id) => {
 
 export const addLobby = (data) => {
   return dispatch => {
-    return fetch('http://localhost:3001/lobbies', {
+    return fetch(`${root}/lobbies`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
