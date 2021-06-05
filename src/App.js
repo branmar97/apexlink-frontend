@@ -3,7 +3,7 @@ import './App.css';
 import NavContainer from './containers/NavContainer';
 import DropdownContainer from './containers/DropdownContainer';
 import Home from './components/Home';
-import LobbyContainer from './container/LobbyContainer'
+import LobbyContainer from './containers/LobbyContainer'
 import Signup from './components/auth/Signup';
 import Login from './components/auth/Login';
 import LobbiesContainer from './containers/LobbiesContainer';

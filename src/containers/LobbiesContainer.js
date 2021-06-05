@@ -3,7 +3,8 @@ import ReactLoading from 'react-loading';
 import { connect } from 'react-redux';
 import { fetchLobbies, addLobby } from '../actions/lobbyActions';
 import Search from '../components/Search';
-import LobbyForm from '../components/LobbyForm';
+import LobbyFormContainer from './LobbyFormContainer';
+
 
 const LobbiesContainer = ({ fetchLobbies, addLobby, lobbies, loading }) => {
     useEffect(() => {
@@ -22,7 +23,7 @@ const LobbiesContainer = ({ fetchLobbies, addLobby, lobbies, loading }) => {
         return ( 
             <div className='bg-transparent 
              font-heebo text-white my-32'>
-                <LobbyForm addLobby={addLobby} />
+                <LobbyFormContainer addLobby={addLobby} />
                 <Search lobbies={lobbies} />
             </div>
         );
