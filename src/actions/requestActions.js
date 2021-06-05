@@ -1,7 +1,7 @@
-export const fetchRequests = () => {
+export const fetchRequests = (lobbyId) => {
     return (dispatch) => {
         dispatch({ type: 'LOADING_REQUESTS' })
-        fetch('http://localhost:3001/requests')
+        fetch(`http://localhost:3001/lobbies/${lobbyId}/requests`)
         .then(response => {
           return response.json()
         })

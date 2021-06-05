@@ -6,7 +6,7 @@ import { fetchRequests } from '../actions/requestActions';
 
 const RequestsContainer = ({ fetchRequests, requests, lobbyId }) => {
     useEffect(() => {
-        fetchRequests()
+        fetchRequests(lobbyId)
     }, [])
 
     return ( 
@@ -32,7 +32,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchRequests: () => dispatch(fetchRequests())
+        fetchRequests: (lobbyId) => dispatch(fetchRequests(lobbyId))
     }
 }
  
