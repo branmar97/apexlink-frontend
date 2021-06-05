@@ -27,7 +27,5 @@ const Lobbies = ({ lobbies }) => {
         </div>
     )
 }
-
-
  
 export default Lobbies;
