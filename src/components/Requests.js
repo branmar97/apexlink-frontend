@@ -2,7 +2,7 @@ import React from 'react';
 import Request from './Request';
 
 const Requests = ({ requests, lobbyId }) => {
-    const filteredRequests = requests.filter(request => request.lobby.id === lobbyId);
+    const filteredRequests = requests.filter(request => request.lobby.id === lobbyId).reverse()
     const requestList = filteredRequests.map(request => {
       return <Request key={request.id} request={request} />
     })
