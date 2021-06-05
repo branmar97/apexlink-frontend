@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './App.css';
-import Nav from './components/Nav';
-import Dropdown from './components/Dropdown';
+import NavContainer from './containers/NavContainer';
+import DropdownContainer from './containers/DropdownContainer';
 import Home from './components/Home';
-import Lobby from './components/Lobby'
+import LobbyContainer from './container/LobbyContainer'
 import Signup from './components/auth/Signup';
 import Login from './components/auth/Login';
 import LobbiesContainer from './containers/LobbiesContainer';
@@ -21,11 +21,11 @@ function App() {
   return (
     <Router>
         <div className='bg-wraith bg-center bg-cover bg-no-repeat bg-fixed pb-72'>
-              <Nav toggle={toggle} />
-              <Dropdown isOpen={isOpen} toggle={toggle} />
+              <NavContainer toggle={toggle} />
+              <DropdownContainer isOpen={isOpen} toggle={toggle} />
               <Route exact path="/" component={Home} />
               <Route exact path="/lobbies" component={withAuth(LobbiesContainer)} />
-              <Route path="/lobbies/:id" component={withAuth(Lobby)} />
+              <Route path="/lobbies/:id" component={withAuth(LobbyContainer)} />
               <Route exact path='/signup' component={Signup} />
               <Route exact path='/login' component={Login} />
         </div>
