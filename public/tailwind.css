@@ -575,13 +575,9 @@ video {
 }
 
 @font-face {
-  font-family: 'Duke';
-
-  src: local('Duke'), url(../../../src/fonts/Duke.otf) format('otf');
-
   font-family: 'Heebo';
 
-  src: local('Heebo'), url('https://fonts.googleapis.com/css2?family=Heebo&display=swap') format('tff');
+  src: local('Heebo'), url('https://fonts.googleapis.com/css2?family=Heebo&display=swap');
 }
 
 .space-y-0 > :not([hidden]) ~ :not([hidden]) {
