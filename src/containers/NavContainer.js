@@ -34,7 +34,7 @@ const NavContainer = ({ authChecked, loggedIn, currentUser, dispatchCheckAuth, t
     return (
         <nav className='flex justify-between items-center h-16 bg-transparent text-white relative font-mono pt-16 pb-16 mb-10' role='navigation'>
             {/* Logo */}
-            <Link to="/" className='text-5xl tracking-widest mt-8 pl-16 flex justify-between items-center font-heebo'>
+            <Link to="/" className='text-3xl tracking-widest mt-8 pl-16 flex justify-between items-center font-heebo'>
                 
             <img className='object-contain h-full hover:scale-150' src={apexlinkLogo} alt='Logo' />
             
