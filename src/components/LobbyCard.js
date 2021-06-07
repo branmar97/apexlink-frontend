@@ -30,7 +30,7 @@ const LobbyCard = ({id, gamertag, region, platform, gamemode, shortDesc, mic, sk
     }
     
     return ( 
-        <div className='card shadow-2xl bg-gray-500 bg-opacity-50 text-gray-200 p-10'>
+        <div className='card shadow-2xl bg-gray-500 bg-opacity-50 text-gray-200 px-6 py-8 sm:p-10'>
             <div className="font-semibold text-xl tracking-wider uppercase"><h2><Link to={`/lobbies/${id}`}>{gamertag}</Link></h2></div>
             <div className="text-sm"><p>{gamemode} • {<TimeAgo datetime={createdAt}
                                                                                         locale='en'

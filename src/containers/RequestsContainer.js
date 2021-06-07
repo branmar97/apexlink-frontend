@@ -10,7 +10,7 @@ const RequestsContainer = ({ fetchRequests, requests, lobbyId }) => {
     }, [])
 
     return ( 
-        <div className='bg-transparent 
+        <div className='
         font-heebo text-white my-32'>
             <RequestsForm 
                 lobbyId={lobbyId}

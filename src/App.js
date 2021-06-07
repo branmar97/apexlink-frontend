@@ -20,7 +20,7 @@ function App() {
 
   return (
     <Router>
-        <div className='bg-wraith bg-center bg-cover bg-no-repeat bg-fixed pb-72'>
+        <div className='bg-wraith bg-center bg-cover bg-scroll p-2 pb-32'>
               <NavContainer toggle={toggle} />
               <DropdownContainer isOpen={isOpen} toggle={toggle} />
               <Route exact path="/" component={Home} />

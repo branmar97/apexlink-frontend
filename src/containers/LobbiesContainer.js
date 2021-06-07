@@ -13,7 +13,7 @@ const LobbiesContainer = ({ fetchLobbies, addLobby, lobbies, loading }) => {
 
     if (loading) {
         return (
-            <div className='bg-transparent h-screen max-w-6xl justify-center flex flex-col mx-auto
+            <div className='h-screen max-w-6xl my-32 justify-center flex flex-col mx-auto
             items-center content-center font-heebo'>
                 <ReactLoading type={'spin'} color={'#ef4445'} height={200} width={100} className={'align-center'} />
                 <h1 className='text-xl sm:text-2xl text-white text-center uppercase mb-4'>Don't worry, this shouldn't take long</h1>
@@ -21,7 +21,7 @@ const LobbiesContainer = ({ fetchLobbies, addLobby, lobbies, loading }) => {
         );
     } else {
         return ( 
-            <div className='bg-transparent 
+            <div className=' 
              font-heebo text-white my-32'>
                 <LobbyFormContainer addLobby={addLobby} />
                 <Search lobbies={lobbies} />

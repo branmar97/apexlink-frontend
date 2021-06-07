@@ -8,7 +8,7 @@ const Logout = ({ dispatchLogoutUser }) => {
 
   return (
     // Display button to logout user on click
-    <button className='p-4 mr-12 text-white hover:text-red-500' onClick={handleClick}>
+    <button className='text-white hover:text-red-500' onClick={handleClick}>
       Logout
     </button>
   );
