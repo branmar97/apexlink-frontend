@@ -20,7 +20,7 @@ const Lobbies = ({ lobbies }) => {
     }
 
     return (
-        <div className='mx-auto bg-transparent mt-16'>
+        <div className='mx-auto mt-16'>
             <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-10'>
                 {listLobbies()}
             </div>
