@@ -66,7 +66,7 @@ const RequestsFormContainer = ({ currentUser, lobbyId, dispatchAddRequest}) => {
                     onChange={handleOnChange}
                 />
 
-                <button className='bg-transparent hover:bg-red-500 text-white hover:text-white py-2 px-6 border border-white hover:border-transparent uppercase mt-10' type='submit'>Join</button>
+                <button className='hover:bg-red-500 text-white hover:text-white py-2 px-6 border border-white hover:border-transparent uppercase mt-10' type='submit'>Join</button>
             </form>
         </div>
      );
