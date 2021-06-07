@@ -22,8 +22,8 @@ const NavContainer = ({ authChecked, loggedIn, currentUser, dispatchCheckAuth, t
                 </>
             ) : (
                 <>
-                    <Link to='/login'><button className="bg-transparent hover:bg-red-700 text-red-500 hover:text-white py-2 px-4 ml-6 border border-red-500 hover:border-transparent uppercase">Login</button></Link>
-                    <Link to='/signup'><button className="bg-transparent hover:bg-red-700 text-red-500 hover:text-white py-2 px-4 ml-2 border border-red-500 hover:border-transparent uppercase">Signup</button></Link>
+                    <Link to='/login'><button className="hover:bg-red-700 text-red-500 hover:text-white py-2 px-4 ml-6 border border-red-500 hover:border-transparent uppercase">Login</button></Link>
+                    <Link to='/signup'><button className="hover:bg-red-700 text-red-500 hover:text-white py-2 px-4 ml-2 border border-red-500 hover:border-transparent uppercase">Signup</button></Link>
                 </>
             );
         } else {
