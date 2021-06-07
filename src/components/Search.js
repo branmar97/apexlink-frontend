@@ -62,19 +62,19 @@ const Search = ({ lobbies }) => {
         } else {
             return (
                 <div>
-                    <h2 className='text-center text-white h-screen px-4 max-w-6xl mx-auto bg-transparent mt-16'>There are no lobbies to display.</h2>
+                    <h2 className='text-center text-white h-screen px-4 max-w-6xl mx-auto mt-16'>There are no lobbies to display.</h2>
                 </div>
             )
         }
     }
 
     return ( 
-        <div className='px-4 max-w-6xl mx-auto mt-16 bg-transparent'>
+        <div className='justify-center max-w-6xl mx-auto'>
             <h2 className='font-bold text-2xl uppercase mb-6'>Browse Lobbies</h2>
 
             <form>
-                <div className="flex flex-wrap -mx-4 mb-2">
-                    <div className="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+                <div className="flex flex-wrap mb-2">
+                    <div className="w-full md:w-1/4 mb-6 md:mb-0">
                         <label className='block uppercase tracking-wide text-white text-xs font-bold mb-2' htmlFor='regionText'>Name</label>
 
                         <input 
@@ -86,7 +86,7 @@ const Search = ({ lobbies }) => {
                         onChange={handleOnChange} />
                     </div>
 
-                    <div className="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+                    <div className="w-full md:w-1/4 lg:pl-2 mb-6 md:mb-0">
                         <label className='block uppercase tracking-wide text-white text-xs font-bold mb-2' htmlFor='regionText'>Region</label>
                         <div className="relative">
                             <select 
@@ -102,7 +102,7 @@ const Search = ({ lobbies }) => {
                         </div>
                     </div>
 
-                    <div className="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+                    <div className="w-full md:w-1/4 lg:pl-2 mb-6 md:mb-0">
                         <label className='block uppercase tracking-wide text-white text-xs font-bold mb-2' htmlFor='regionText'>Platform</label>
                         
                         <select 
@@ -117,7 +117,7 @@ const Search = ({ lobbies }) => {
                         </select>
                     </div>
 
-                    <div className="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+                    <div className="w-full md:w-1/4 lg:pl-2 mb-6 md:mb-0">
                         <label className='block uppercase tracking-wide text-white text-xs font-bold mb-2' htmlFor='regionText'>Gamemode</label>
                         
                         <select 
