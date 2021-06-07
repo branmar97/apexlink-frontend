@@ -40,7 +40,7 @@ const LobbyContainer = ({ lobby, getLobby, match, loading }) => {
     
     if (loading || !isObjNotEmpty(lobby)) {
         return (
-            <div className='bg-transparent h-screen max-w-6xl justify-center flex flex-col mx-auto
+            <div className='h-screen max-w-6xl justify-center flex flex-col mx-auto
             items-center content-center font-heebo'>
                 <ReactLoading type={'spin'} color={'#ef4445'} height={200} width={100} className={'align-center'} />
                 <h1 className='text-xl sm:text-2xl text-white text-center uppercase mb-4'>Don't worry, this shouldn't take long</h1>
@@ -48,7 +48,7 @@ const LobbyContainer = ({ lobby, getLobby, match, loading }) => {
         )
     } else if (lobby) {
         return (
-            <div className='bg-transparent font-heebo text-white my-32 px-4 max-w-6xl mx-auto'>
+            <div className='font-heebo text-white my-32 max-w-6xl mx-auto'>
                 <Link to='/lobbies'>
                     <span className='flex mb-4'>
                         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -57,8 +57,8 @@ const LobbyContainer = ({ lobby, getLobby, match, loading }) => {
                     </span>
                 </Link>
     
-                <div className='shadow-2xl bg-gray-500 bg-opacity-50 text-gray-200 p-10'>  
-                    <p className="text-sm mb-6 mt-2 float-right">Lobby #{lobby.id}</p>
+                <div className='shadow-2xl bg-gray-500 bg-opacity-50 text-gray-200 p-4 py-6 sm:p-10 flex flex-col overflow-hidden'>  
+                    <small className="text-sm mb-2">Lobby #{lobby.id}</small>
                     <div className='flex'>
                         <h2 className="font-semibold text-4xl tracking-wider uppercase mr-4">{lobby.user.gamertag}</h2>
                         <img alt='Host Icon' src="https://img.icons8.com/android/40/ffffff/crown.png"/>
