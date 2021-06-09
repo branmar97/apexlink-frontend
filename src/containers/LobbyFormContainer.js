@@ -80,7 +80,7 @@ const LobbyFormContainer = ({ addLobby, currentUser }) => {
     }
 
     return ( 
-        <div className='px-4 max-w-6xl mx-auto'>
+        <div className='max-w-6xl mx-auto mb-12'>
             <button className='hover:bg-red-500 text-white hover:text-white py-2 px-6 border border-white hover:border-transparent uppercase float-right' onClick={handleShowForm}>{formData.hidden ? 'Create Lobby' : 'Hide Form'}</button>
             <form className={formData.hidden ? 'hidden' : ''} onSubmit={handleOnSubmit}>
                 <h1 className='font-bold text-2xl uppercase mb-6'>Create Lobby</h1>
