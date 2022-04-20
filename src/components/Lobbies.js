@@ -14,6 +14,7 @@ const Lobbies = ({ lobbies }) => {
             shortDesc={lobby.short_desc}
             mic={lobby.mic_required}
             skillLevel={lobby.skill_level}
+            live={lobby.live}
             createdAt={lobby.created_at}
             requests={lobby.requests}
         />)
