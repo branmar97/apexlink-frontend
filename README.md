@@ -23,6 +23,10 @@ NOTE: Be sure to clone the [backend-repo](https://github.com/branmar97/apexlink-
 * PostgreSQL
 * HTML/CSS
 
+## Future Updates
+
+Currently building new features, including user profiles, live lobby status, and instant messaging with websockets.
+
 ## Contributing
 
 Bug reports and pull requests are welcome on Github at https://github.com/branmar97/apexlink-frontend
