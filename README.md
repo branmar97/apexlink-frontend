@@ -6,6 +6,15 @@ Apex Link is a web application where gamers can find friends and teammates for t
 
 Signup or login to create, view and join sessions.
 
+## Installation
+
+NOTE: Be sure to clone the [backend-repo](https://github.com/branmar97/apexlink-backend) as well for the full project
+
+1. Clone this repository
+2. Run 'npm install'
+3. Run 'npm start'
+
+
 ## Built Using
 
 * Ruby on Rails
@@ -13,6 +22,10 @@ Signup or login to create, view and join sessions.
 * Redux
 * PostgreSQL
 * HTML/CSS
+
+## Future Updates
+
+Currently building new features, including user profiles, live lobby status, and instant messaging with websockets.
 
 ## Contributing
 

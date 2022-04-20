@@ -10,7 +10,7 @@ const LobbyFormContainer = ({ addLobby, currentUser }) => {
             micBool: false,
             hidden: true,
             error: false,
-            errorMessage: {}
+            errorMessages: {}
         }
     )
 
@@ -38,16 +38,24 @@ const LobbyFormContainer = ({ addLobby, currentUser }) => {
             setFormData({
                 ...formData,
                 error: true,
-                errorMessage: error
+                errorMessages: error
             })
         })
     }
 
-    const handleErrorMessage = () => {
-        if (formData.errorMessage && Object.keys(formData.errorMessage).length > 0 && formData.errorMessage.constructor === Object) {
+    const handleErrorMessages = () => {
+        const { errorMessages } = formData
+        const keys = Object.keys(errorMessages)
+        if (errorMessages && keys.length > 0 && errorMessages.constructor === Object) {
             return (
-                Object.keys(formData.errorMessage).map(key => {
-                    return <p className="mb-4 text-red-500">{formData.errorMessage[key][0]}</p>
+                keys.map((key) => {
+                    return (
+                        errorMessages[key].map(error => {
+                            return (
+                                <p className="mb-4 text-red-500">{error}</p>
+                            )
+                        })
+                    )
                 })
             )
         } else {
@@ -84,7 +92,7 @@ const LobbyFormContainer = ({ addLobby, currentUser }) => {
             <button className='hover:bg-red-500 text-white hover:text-white py-2 px-6 border border-white hover:border-transparent uppercase float-right' onClick={handleShowForm}>{formData.hidden ? 'Create Lobby' : 'Hide Form'}</button>
             <form className={formData.hidden ? 'hidden' : ''} onSubmit={handleOnSubmit}>
                 <h1 className='font-bold text-2xl uppercase mb-6'>Create Lobby</h1>
-                {formData.error && handleErrorMessage()}
+                {formData.error && handleErrorMessages()}
                 <label htmlFor='gamemodeText'>Gamemode</label>
 
                 <select 
