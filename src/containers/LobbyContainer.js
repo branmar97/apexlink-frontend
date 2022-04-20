@@ -25,7 +25,7 @@ const LobbyContainer = ({ lobby, getLobby, match, loading }) => {
     const liveStatus = () => {
         if (lobby.live) {
             return (
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.636 18.364a9 9 0 010-12.728m12.728 0a9 9 0 010 12.728m-9.9-2.829a5 5 0 010-7.07m7.072 0a5 5 0 010 7.07M13 12a1 1 0 11-2 0 1 1 0 012 0z" /></svg>
+                <svg className="animate-ping w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.636 18.364a9 9 0 010-12.728m12.728 0a9 9 0 010 12.728m-9.9-2.829a5 5 0 010-7.07m7.072 0a5 5 0 010 7.07M13 12a1 1 0 11-2 0 1 1 0 012 0z" /></svg>
             )
         }
     }
@@ -66,7 +66,12 @@ const LobbyContainer = ({ lobby, getLobby, match, loading }) => {
                 </Link>
     
                 <div className='shadow-2xl bg-gray-500 bg-opacity-50 text-gray-200 p-4 py-6 sm:p-10 flex flex-col overflow-hidden'>  
-                    <small className="text-sm mb-2">Lobby #{lobby.id}</small>
+                    <div>
+                        <small className="text-sm mb-2">Lobby #{lobby.id}</small>
+                        <div className='flex float-right text-green-600 ml-10 text-md'>
+                            {liveStatus()} <p className="ml-2">LIVE</p>
+                        </div>
+                    </div>
                     <div className='flex'>
                         <h2 className="font-semibold text-4xl tracking-wider uppercase mr-4">{lobby.user.gamertag}</h2>
                         <img alt='Host Icon' src="https://img.icons8.com/android/40/ffffff/crown.png"/>
