@@ -26,6 +26,31 @@ export const getLobby = (id) => {
   }
 }
 
+export const updateLobby = (data) => {
+  return dispatch => {
+    return fetch(`${root}/lobbies/${data.id}`, {
+      method: 'PATCH',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({lobby: data}),
+    })
+    .then(res => {
+      if (res.ok) {
+        return res
+          .json()
+          .then(data =>
+            dispatch({ type: 'UPDATE_LOBBY', lobby: data })  
+          );
+      } else {
+        return res.json().then((errors) => {
+          return Promise.reject(errors);
+        });
+      }
+    })
+  }
+}
+
 export const addLobby = (data) => {
   return dispatch => {
     return fetch(`${root}/lobbies`, {
