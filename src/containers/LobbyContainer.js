@@ -12,6 +12,24 @@ const LobbyContainer = ({ lobby, getLobby, updateLobby, currentUser, match, load
         getLobby(match.params.id);
     }, [])
 
+    const endSessionHandler = () => {
+        const newLobby = {
+            ...lobby,
+            live: false
+        }
+        updateLobby(newLobby);
+    }
+
+    const updateLiveStatus = () => {
+        if (lobby.user.id == currentUser.id && lobby.live) {
+            return (
+                <form onSubmit={endSessionHandler()}>
+                    <button type="submit">End Session</button>
+                </form>
+            )
+        }
+    }
+
     const micRequired = () => {
         if (lobby.mic_required) {
             return (
