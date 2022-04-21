@@ -24,7 +24,7 @@ const LobbyContainer = ({ lobby, getLobby, updateLobby, currentUser, match, load
         if (lobby.user.id == currentUser.id && lobby.live) {
             return (
                 <form onSubmit={endSessionHandler()}>
-                    <button type="submit">End Session</button>
+                    <button className="hover:bg-red-500 text-white hover:text-white py-2 px-6 border border-white hover:border-transparent uppercase" type="submit">End Session</button>
                 </form>
             )
         }
@@ -104,7 +104,7 @@ const LobbyContainer = ({ lobby, getLobby, updateLobby, currentUser, match, load
                     <div className="flex mt-2">{platformType()}{micRequired()}</div>
                     <p className='text-sm mt-2'>{lobby.region} • {lobby.skill_level}</p>
                     <p className="text-sm mt-4 text-white">{lobby.description}</p>
-                    <div className="flex float-right">
+                    <div className="mt-10">
                         {updateLiveStatus()}
                     </div>
                 </div>
