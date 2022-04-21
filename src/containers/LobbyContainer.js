@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import isObjNotEmpty from '../helpers';
 import TimeAgo from 'timeago-react';
 
-const LobbyContainer = ({ lobby, getLobby, updateLobby, match, loading }) => {
+const LobbyContainer = ({ lobby, getLobby, updateLobby, currentUser, match, loading }) => {
     useEffect(() => {
         getLobby(match.params.id);
     }, [])
@@ -101,7 +101,8 @@ const LobbyContainer = ({ lobby, getLobby, updateLobby, match, loading }) => {
 const mapStateToProps = state => {
     return {
         lobby: state.lobbies.current,
-        loading: state.lobbies.loading
+        loading: state.lobbies.loading,
+        currentUser: state.auth.state.currentUser
     }
 }
 
