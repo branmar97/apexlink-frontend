@@ -18,7 +18,7 @@ const manageLobbies = (state = { list: [], current: {}, loading: true }, action)
                 list: [ action.lobby, ...state.list ]
             }
         case 'UPDATE_LOBBY':
-            updatedList = list.map(lobby => {
+            const updatedList = state.list.map(lobby => {
                 if (lobby.id == action.lobby.id) {
                     return action.lobby
                 }
