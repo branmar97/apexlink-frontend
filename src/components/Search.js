@@ -21,7 +21,7 @@ const Search = ({ lobbies }) => {
     const nameFilter = lobby => {
         if (formData.searchTerm === '') {
             return lobby 
-        } else if (lobby.gamertag.toLowerCase().includes(formData.searchTerm.toLowerCase())) {
+        } else if (lobby.user.gamertag.toLowerCase().includes(formData.searchTerm.toLowerCase())) {
             return lobby
         }
     }
