@@ -2,12 +2,12 @@ import React, { useEffect } from 'react';
 import RequestsContainer from './RequestsContainer';
 import ReactLoading from 'react-loading';
 import { connect } from 'react-redux';
-import { getLobby } from '../actions/lobbyActions';
+import { getLobby, updateLobby } from '../actions/lobbyActions';
 import { Link } from 'react-router-dom';
 import isObjNotEmpty from '../helpers';
 import TimeAgo from 'timeago-react';
 
-const LobbyContainer = ({ lobby, getLobby, match, loading }) => {
+const LobbyContainer = ({ lobby, getLobby, updateLobby, match, loading }) => {
     useEffect(() => {
         getLobby(match.params.id);
     }, [])
@@ -108,6 +108,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         getLobby: (id) => dispatch(getLobby(id)),
+        updateLobby: (id) => dispatch(updateLobby(id)),
     }
 }
  
