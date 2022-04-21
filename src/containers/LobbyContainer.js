@@ -104,6 +104,9 @@ const LobbyContainer = ({ lobby, getLobby, updateLobby, currentUser, match, load
                     <div className="flex mt-2">{platformType()}{micRequired()}</div>
                     <p className='text-sm mt-2'>{lobby.region} • {lobby.skill_level}</p>
                     <p className="text-sm mt-4 text-white">{lobby.description}</p>
+                    <div className="flex float-right">
+                        {updateLiveStatus()}
+                    </div>
                 </div>
                 <div>
                     <RequestsContainer lobbyId={lobby.id} />
@@ -120,7 +123,7 @@ const mapStateToProps = state => {
     return {
         lobby: state.lobbies.current,
         loading: state.lobbies.loading,
-        currentUser: state.auth.state.currentUser
+        currentUser: state.auth.currentUser
     }
 }
 
