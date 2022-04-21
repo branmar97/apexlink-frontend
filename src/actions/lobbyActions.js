@@ -26,21 +26,22 @@ export const getLobby = (id) => {
   }
 }
 
-export const updateLobby = (data) => {
+export const updateLobbyStatus = (id) => {
   return dispatch => {
-    return fetch(`${root}/lobbies/${data.id}`, {
+    dispatch({ type: 'LOADING_LOBBY' })
+    fetch(`${root}/lobbies/${id}`, {
       method: 'PATCH',
       headers: {
         'content-type': 'application/json'
       },
-      body: JSON.stringify({lobby: data}),
+      body: JSON.stringify({live: false}),
     })
     .then(res => {
       if (res.ok) {
         return res
           .json()
           .then(data =>
-            dispatch({ type: 'UPDATE_LOBBY', lobby: data })  
+            dispatch({ type: 'UPDATE_LOBBY_STATUS', lobby: data })  
           );
       } else {
         return res.json().then((errors) => {
