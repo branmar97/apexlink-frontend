@@ -25,7 +25,6 @@ const RequestsContainer = ({ fetchRequests, requests, lobbyId, liveStatus }) => 
         } else {
             return (
                 <div>
-                    <h2 className='text-center text-white px-4 max-w-6xl mx-auto mt-16'>The lobby is offline and no longer accepting join requests.</h2>
                     <Requests
                     requests={requests}
                     lobbyId={lobbyId}
