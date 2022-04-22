@@ -108,7 +108,7 @@ const LobbyContainer = ({ lobby, getLobby, updateLobbyStatus, currentUser, match
                     </div>
                 </div>
                 <div>
-                    <RequestsContainer lobbyId={lobby.id} />
+                    <RequestsContainer lobbyId={lobby.id} liveStatus={lobby.live}/>
                 </div>
             </div>
         )
