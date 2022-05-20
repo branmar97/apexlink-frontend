@@ -35,7 +35,7 @@ const Signup = ({ dispatchSignupUser, history }) => {
             className='my-32 px-4 max-w-6xl mx-auto text-white'
         >
             <h1 className='font-bold text-2xl uppercase mb-6 text-white'>Sign Up</h1>
-            <p className=''>{formData.errors.status.message}</p>
+            <p className='text-red-500'>{formData.errors.status.message}</p>
 
             <fieldset>
             <label className='' htmlFor='email'>
