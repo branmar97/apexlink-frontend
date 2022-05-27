@@ -2,8 +2,11 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import ReactLoading from 'react-loading';
 import { getProfile } from '../actions/profileActions';
+import { useHistory } from 'react-router-dom';
 
 const ProfileContainer = ({ getProfile, currentProfile, match, loading }) => {
+    const history = useHistory();
+
     useEffect(() => {
         getProfile(match.params.id)
     }, [])
@@ -16,13 +19,16 @@ const ProfileContainer = ({ getProfile, currentProfile, match, loading }) => {
                 <h1 className='text-xl sm:text-2xl text-white text-center uppercase mb-4'>Don't worry, this shouldn't take long</h1>
             </div>
         );
-    } else {
+    } else if (currentProfile.user) {
         return ( 
             <div className=' 
              font-heebo text-white my-32'>
                 <h1>{currentProfile.user.gamertag }</h1>
             </div>
         );
+    } else {
+        history.push('/')
+        return null
     }
 }
 
