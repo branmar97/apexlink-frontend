@@ -7,6 +7,7 @@ import LobbyContainer from './containers/LobbyContainer'
 import Signup from './components/auth/Signup';
 import Login from './components/auth/Login';
 import LobbiesContainer from './containers/LobbiesContainer';
+import ProfileContainer from './containers/ProfileContainer';
 import withAuth from "./components/auth/withAuth";
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -24,6 +25,7 @@ function App() {
               <NavContainer toggle={toggle} />
               <DropdownContainer isOpen={isOpen} toggle={toggle} />
               <Route exact path="/" component={Home} />
+              <Route path="/profiles/:id" component={ProfileContainer} />
               <Route exact path="/lobbies" component={withAuth(LobbiesContainer)} />
               <Route path="/lobbies/:id" component={withAuth(LobbyContainer)} />
               <Route exact path='/signup' component={Signup} />
