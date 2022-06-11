@@ -24,7 +24,7 @@ const ProfileContainer = ({ getProfile, currentProfile, match, loading }) => {
     } else if (currentProfile.user) {
         return ( 
             <div className=' 
-             font-heebo text-white my-32'>
+            h-screen max-w-6xl my-32 flex flex-col mx-auto font-heebo text-white'>
                 <ProfileCard 
                     gamertag={currentProfile.user.gamertag}
                     bio={currentProfile.bio}
